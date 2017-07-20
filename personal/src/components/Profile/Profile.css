@@ -1,0 +1,13 @@
+#Profile .dashboard {
+  height: 50vh; }
+  #Profile .dashboard .bluestripe {
+    height: 60%;
+    background-color: #57BDE8; }
+  #Profile .dashboard .whitestripe {
+    height: 40%;
+    background-color: black; }
+  #Profile .dashboard .bigpic {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden; }

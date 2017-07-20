@@ -8,7 +8,7 @@ export default class Sections extends Component {
     return(
       <div>
         Sections
-          <Route component={SectionView} path='/groups/:groupname/sections/:sectionname' />
+          <Route component={SectionView} path='/groupdashboard/:groupname/sections/:sectionname' />
       </div>
     )
   }

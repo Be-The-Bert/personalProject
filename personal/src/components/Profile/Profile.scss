@@ -1,0 +1,24 @@
+$blue: #57BDE8;
+
+#Profile{
+  .dashboard {
+    height: 50vh;
+    .bluestripe {
+      height: 60%;
+      background-color: $blue;
+    }
+    .whitestripe {
+      height: 40%;
+      background-color: black;
+    }
+    .bigpic{
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    img {
+      
+    }
+  }
+}
