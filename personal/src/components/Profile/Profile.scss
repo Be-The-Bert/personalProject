@@ -1,24 +1,61 @@
 $blue: #57BDE8;
+$lightGray: #D8D8D8;
+$mediumGray: #757677;
+$darkGray: #292C2F;
+$font: 'Open Sans', sans-serif;
+$lightWeight: 300;
+$normalWeight: 400;
 
 #Profile{
   .dashboard {
+    position: relative;
     height: 50vh;
     .bluestripe {
-      height: 60%;
+      position: relative;
+      height: 55%;
       background-color: $blue;
+      h1 {
+        position: absolute;
+        left: 50vh;
+        bottom: 2vh;
+        font-family: $font;
+        font-weight: $normalWeight;
+        font-size: 3rem;
+        color: $darkGray;
+      }
     }
     .whitestripe {
-      height: 40%;
-      background-color: black;
+      display: flex;
+      justify-content: flex-end;
+      height: 45%;
+      border-bottom: solid 5px black;
+      .links {
+        height: 1.75rem;
+        margin: 1.5rem;
+        font-family: $font;
+        font-size: 1.75rem;
+        font-weight: $normalWeight;
+        text-decoration: none;
+        color: $darkGray;
+      }
+      .links:active {
+        border-bottom: solid 1px $darkGray;
+      }
+      .links:hover {
+        border-bottom: solid 1px $lightGray;
+      }
     }
     .bigpic{
-      height: 200px;
-      width: 200px;
+      position: absolute;
+      top: 5vh;
+      left: 5vh;
+      height: 40vh;
+      width: 40vh;
+      background-position: center;
+      background-size: 40vh;
       border-radius: 50%;
+      border: solid 1px $mediumGray;
       overflow: hidden;
-    }
-    img {
-      
     }
   }
 }

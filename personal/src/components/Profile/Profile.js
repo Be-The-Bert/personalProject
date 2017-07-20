@@ -16,18 +16,22 @@ class Profile extends Component {
       redirect.mainRedirect(this.props.history.push, //this.props.user// 
       true);
     }
+    const bigpicStyle = {
+      "background-image": `url(${this.props.userInfo.profilepic})`
+    }
     return(
       <div id='Profile'>
         <div className='dashboard'>
           <div className='bluestripe'>
+            <h1>{this.props.userInfo.name}</h1>
           </div>
           <div className='whitestripe'>
+            <Link className='links' to='/profile/media'>Media</Link>
+            <Link className='links' to='/profile/pages'>Daily Pages</Link>
+            <Link className='links' to='/profile/groups'>Groups</Link>
           </div>
-          <div className='bigpic'>
-            {/* <img src={this.props.userInfo.profilepic}></img> */}
-          </div>
+          <div className='bigpic' style={bigpicStyle}></div>
         </div>
-        <Link to='/profile/media'>click</Link>
           <Switch>
             <Route component={Media} path='/profile/media' />
             <Route component={DailyPages} path='/profile/pages' />

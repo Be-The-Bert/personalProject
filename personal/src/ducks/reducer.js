@@ -4,7 +4,7 @@ const initialState = {
   userInfo: {
     email: 'mrsbethtelford@gmail.com',
     username: 'BeTheBert',
-    name: 'Beth Telford',
+    name: 'Joe Lastname',
     profilepic: 'http://img.timeinc.net/time/daily/2010/1011/poy_nomination_agassi.jpg'
   }
 }
