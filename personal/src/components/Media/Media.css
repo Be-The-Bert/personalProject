@@ -1,0 +1,41 @@
+.Media .mediaBlock {
+  position: relative;
+  float: left;
+  margin: 0 0 4vw 4vw;
+  height: 20vw;
+  width: 28vw;
+  background-size: cover;
+  background-position: center;
+  border: solid 1px #757677;
+  font-family: "Open Sans", sans-serif; }
+  .Media .mediaBlock .transparent {
+    height: 20vw;
+    width: 28vw;
+    background-color: rgba(255, 255, 255, 0.7); }
+  .Media .mediaBlock .title {
+    top: 5%;
+    left: 5%;
+    font-size: 1.3rem; }
+  .Media .mediaBlock .author {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 1.3rem;
+    top: 5%;
+    right: 5%;
+    font-size: .7rem; }
+  .Media .mediaBlock .source {
+    top: 16%;
+    left: 5%; }
+  .Media .mediaBlock .description {
+    top: 25%;
+    left: 5%; }
+  .Media .mediaBlock .switch {
+    display: none; }
+
+.Media .mediaBlock > * {
+  position: absolute;
+  color: #292C2F; }
+
+.Media .mediaBlock > *:hover {
+  cursor: pointer; }

@@ -42,10 +42,23 @@ passport.use(new Auth0Strategy({
   clientSecret: config.auth0.clientSecret,
   callbackURL: config.auth0.callbackURL
 }, function(accessToken, refreshToken, extraParams, profile, done) {
-    console.log(`Logged In: ${profile.id}`);
     const db = app.get('db');
-    db.allUsers([profile.id]).then(users => console.log('test db ping'));
-    //DO DATABASE STUFF HERE TO FIND/ADD A USER
+    let flag = false;
+    db.checkUser([profile.id]).then(user => {
+      console.log('user', user);
+      if (user.length) {
+        console.log('found');
+      } else {
+        flag = true;
+        console.log('lost');
+      }
+      if(flag) {
+        db.createUser([profile.id, profile.emails[0].value.email, profile.nickname, profile.displayName, profile.picture]).then(console.log('creation')).catch(err => console.log('creation failed', err));
+      } else {
+        db.updateUser([profile.id, profile.emails[0].value.email, profile.nickname, profile.displayName, profile.picture]).then(console.log('update')).catch(err => console.log('update failed', err));
+      }
+    }).catch(err => console.log('check failed', err));
+
   return done(null, profile);
 }));
 
@@ -68,6 +81,25 @@ app.get('/api/checkuser', (req, res) => {
    } else {
      res.status(200).send(false)
    }
+});
+app.get('/api/userinfo', (req, res) =>{
+  const db = req.app.get('db');
+  db.checkUser([req.user.id]).then(data => res.status(200).send(data))
+});
+app.get('/api/media/:id', (req, res) => {
+  const db = req.app.get('db');
+  db.getUserMedia([req.params.id])
+  .then(data => res.status(200).send(data))
+});
+app.get('/api/pages/:id', (req, res) => {
+  const db = req.app.get('db');
+  db.getUserPages([req.params.id])
+  .then(data => res.status(200).send(data))
+});
+app.get('/api/groups/:id', (req, res) => {
+  const db = req.app.get('db');
+  db.getUserGroups([req.params.id])
+  .then(data => res.status(200).send(data))
 })
 
 

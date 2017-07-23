@@ -9,10 +9,10 @@ $normalWeight: 400;
 #Profile{
   .dashboard {
     position: relative;
-    height: 50vh;
+    height: 55vh;
     .bluestripe {
       position: relative;
-      height: 55%;
+      height: 60%;
       background-color: $blue;
       h1 {
         position: absolute;
@@ -27,8 +27,7 @@ $normalWeight: 400;
     .whitestripe {
       display: flex;
       justify-content: flex-end;
-      height: 45%;
-      border-bottom: solid 5px black;
+      height: 40%;
       .links {
         height: 1.75rem;
         margin: 1.5rem;
@@ -47,14 +46,14 @@ $normalWeight: 400;
     }
     .bigpic{
       position: absolute;
-      top: 5vh;
+      top: 10vh;
       left: 5vh;
       height: 40vh;
       width: 40vh;
       background-position: center;
       background-size: 40vh;
       border-radius: 50%;
-      border: solid 1px $mediumGray;
+      border: solid 2px $mediumGray;
       overflow: hidden;
     }
   }

@@ -1,0 +1,41 @@
+$blue: #57BDE8;
+$lightGray: #D8D8D8;
+$mediumGray: #757677;
+$darkGray: #292C2F;
+$font: 'Open Sans', sans-serif;
+$lightWeight: 300;
+$normalWeight: 400;
+
+#Nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  height: 45px;
+  width: 100%;
+  background-color: rgba($darkGray, .9);
+  color: $lightGray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $font;
+  .link {
+    text-decoration: none;
+    color: $lightGray;
+  }
+  .block {
+    display: flex;
+  }
+  .border {
+    border-right: solid 1px $lightGray;
+  }
+  .logout:hover {
+    cursor: pointer;
+  }
+  .block > * {
+    padding: 0 20px;
+  }
+}
+#Nav > * {
+  margin: 0 20px;
+}

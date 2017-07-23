@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { checkUser } from './../../ducks/actions';
+import { checkUser, getUserInfo } from './../../ducks/actions';
 
 import Nav from './../Nav/Nav';
 import Welcome from './../Welcome/Welcome';
@@ -13,9 +13,15 @@ import GroupDetails from './../GroupDetails/GroupDetails';
 import EditGroup from './../EditGroup/EditGroup';
 import GroupDash from './../GroupDash/GroupDash';
 
+import './../../reset.css';
+
 class App extends Component {
   componentDidMount(){
     this.props.checkUser();
+    this.props.getUserInfo();
+    if (this.props.history.location.pathname === '/') {
+      this.props.history.push('/welcome');
+    }
   }
   render() {
     return (
@@ -41,28 +47,8 @@ class App extends Component {
 }
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user,
+    userInfo: state.userInfo
   }
 }
-export default withRouter(connect(mapStateToProps, { checkUser })(App));
-
-            // <Switch>
-              
-            //   {this.props.user
-            //   ?
-            //     <div>
-            //     <Route component={Profile} path='/profile'/>
-            //     <Route component={DayView} path='/pages/:dayid' />
-            //     <Route component={CreateGroup} path='/groups/create' />
-            //     <Route component={GroupDetails} path='/groups/details/:groupname' exact/>
-            //     <Route component={EditGroup} path='/groups/details/:groupname/edit' />
-            //     <Route component={GroupDash} path='/groupdashboard/:groupname' />
-            //     <Route render={() => <Redirect to="/profile"/>}/>
-            //     </div>
-            //   :
-            //     <div>
-            //     <Route component={Welcome} path='/welcome' />
-            //     <Route render={() => <Redirect to="/welcome"/>}/>
-            //     </div>
-            //   }
-            // </Switch>
+export default withRouter(connect(mapStateToProps, { checkUser, getUserInfo })(App));

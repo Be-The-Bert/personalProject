@@ -1,27 +1,46 @@
 const initialState = {
   user: false,
   redirect: false,
-  userInfo: {
-    email: 'mrsbethtelford@gmail.com',
-    username: 'BeTheBert',
-    name: 'Joe Lastname',
-    profilepic: 'http://img.timeinc.net/time/daily/2010/1011/poy_nomination_agassi.jpg'
-  }
+  userInfo: {},
+  media: [],
+  pages: [],
+  groups: []
 }
 
 const CHECKUSER = 'CHECKUSER';
+const GETUSERINFO = 'GETUSERINFO';
+const GETMEDIA = 'GETMEDIA';
+const GETPAGES = 'GETPAGES';
+const GETGROUPS = 'GETGROUPS';
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case CHECKUSER + '_PENDING':
-    console.log('checkuser pending');
+      console.log('checkuser pending');
       return state
     case CHECKUSER + '_FULFILLED':
-    console.log('checkuser fulfilled', action.payload);
-      return {
+      console.log('checkuser fulfilled', action.payload);
+      return Object.assign({}, state, {
         user: action.payload,
         redirect: true
-      }
+      })
+    case GETUSERINFO + '_FULFILLED':
+      return Object.assign({}, state, {
+        userInfo: action.payload
+      })
+    case GETMEDIA + '_FULFILLED':
+    console.log('getmedia reducer', action.payload);
+      return Object.assign({}, state, {
+        media: action.payload
+      }) 
+    case GETPAGES + '_FULFILLED':
+      return Object.assign({}, state, {
+        pages: action.payload
+      })
+    case GETGROUPS + '_FULFILLED':
+      return Object.assign({}, state, {
+        groups: action.payload
+      })
     default:
       return state
   }

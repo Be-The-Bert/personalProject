@@ -1,0 +1,54 @@
+$blue: #57BDE8;
+$lightGray: #D8D8D8;
+$mediumGray: #757677;
+$darkGray: #292C2F;
+$font: 'Open Sans', sans-serif;
+$lightWeight: 300;
+$normalWeight: 400;
+
+#Groups {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font;
+  .groupBlock {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70vw;
+    height: 8vh;
+    background-color: $blue;
+    border: solid 1px $mediumGray;
+    .infoBlock {
+      display: flex;
+      align-items: center;
+      .groupName {
+        font-size: 1.5rem;
+      }
+    }
+    .infoBlock > * {
+      margin: 0 10px;
+    }
+    .buttonBlock {
+      display: flex;
+      align-items: center;
+    }
+    .button {
+      text-decoration: none;
+      // height: 4vh;
+      font-size: 1rem;
+      // font-weight: $lightWeight;
+      background-color: $mediumGray;
+      color: $lightGray;
+      border: solid 1px $mediumGray;
+      margin: 0 10px;
+      padding: 10px;
+    }
+    .button:hover {
+      cursor: pointer;
+      background-color: rgba($mediumGray, .8);
+    }
+  }
+
+}
