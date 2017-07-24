@@ -23,6 +23,9 @@ $normalWeight: 400;
     text-decoration: none;
     color: $lightGray;
   }
+  .link:hover {
+    color: $mediumGray;
+  }
   .block {
     display: flex;
   }
@@ -31,6 +34,7 @@ $normalWeight: 400;
   }
   .logout:hover {
     cursor: pointer;
+    color: $mediumGray;
   }
   .block > * {
     padding: 0 20px;

@@ -14,12 +14,15 @@
   #Nav .link {
     text-decoration: none;
     color: #D8D8D8; }
+  #Nav .link:hover {
+    color: #757677; }
   #Nav .block {
     display: flex; }
   #Nav .border {
     border-right: solid 1px #D8D8D8; }
   #Nav .logout:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    color: #757677; }
   #Nav .block > * {
     padding: 0 20px; }
 

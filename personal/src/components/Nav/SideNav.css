@@ -1,0 +1,86 @@
+#SideNav {
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
+  width: 15vw;
+  background-color: rgba(41, 44, 47, 0.9);
+  color: #D8D8D8;
+  padding: 1vw; }
+  #SideNav h1 {
+    color: #86CFEF;
+    font-size: 1.5rem; }
+  #SideNav .user {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    #SideNav .user .profilePic {
+      height: 10vw;
+      width: 10vw;
+      background-position: center;
+      background-size: cover;
+      border-radius: 50%;
+      border: solid 0.5px #757677;
+      overflow: hidden; }
+    #SideNav .user .userBlock {
+      display: flex;
+      margin: 10px; }
+    #SideNav .user .userBlock > * {
+      padding: 0 10px; }
+    #SideNav .user .border {
+      border-right: solid 0.5px #D8D8D8; }
+    #SideNav .user .logout:hover {
+      cursor: pointer;
+      color: #757677; }
+  #SideNav .link {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+    color: #D8D8D8;
+    height: 40px;
+    width: 13vw;
+    border-bottom: solid 0.5px #757677; }
+  #SideNav .link:hover {
+    color: #757677;
+    cursor: pointer; }
+  #SideNav .sublinkList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; }
+  #SideNav .sublink {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+    color: #D8D8D8;
+    height: 40px;
+    width: 10vw;
+    border-bottom: solid 0.5px #757677; }
+  #SideNav .sublink:hover {
+    color: #757677;
+    cursor: pointer; }
+  #SideNav .subsublinkList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; }
+    #SideNav .subsublinkList .sublink {
+      width: 7vw; }
+  #SideNav .linkActive {
+    color: #86CFEF; }
+  #SideNav .tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; }
+  #SideNav .groupsList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; }
+  #SideNav h2 {
+    color: #86CFEF;
+    margin: 7vh 0 10px;
+    padding-bottom: 5px;
+    border-bottom: solid 1px #86CFEF;
+    font-size: 1.2rem; }

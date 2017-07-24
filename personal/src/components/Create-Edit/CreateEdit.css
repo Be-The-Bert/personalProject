@@ -1,0 +1,17 @@
+.CreateEdit {
+  position: relative;
+  min-height: 100vh;
+  background-color: #D8D8D8;
+  padding: 7.5vw 10vw;
+  font-family: "Open Sans", sans-serif; }
+  .CreateEdit h1 {
+    font-size: 4rem; }
+  .CreateEdit .createSaveButton {
+    position: absolute;
+    bottom: 2vw;
+    right: 3vw;
+    height: 70px;
+    width: 180px;
+    background-color: #292C2F;
+    color: #D8D8D8;
+    font-size: 1.5rem; }

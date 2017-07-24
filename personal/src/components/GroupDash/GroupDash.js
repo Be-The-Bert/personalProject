@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import redirect from './../../services/redirect';
 
@@ -8,42 +9,59 @@ import Media from './../Media/Media';
 import DailyPages from './../DailyPages/DailyPages';
 import Sections from './Sections/Sections';
 
-import './GroupDash.css';
+// import './GroupDash.css';
 
 class GroupDash extends Component {
+  constructor (props){
+    super(props);
+    let group = {};
+    for (let i = 0; i < this.props.groups.length; i++) {
+      if (this.props.groups[i].groupid == this.props.match.params.groupid) {
+        group = Object.assign(this.props.groups[i]);
+      }
+    }
+    this.state = {
+      groupname: group.name,
+      media: [],
+      pages: [],
+      sections: []
+    }
+  }
+  sort(groupid) {
+    let media = this.props.media.filter(media => {
+      return media.groupid === groupid - 2
+    })
+    let pages = this.props.pages.filter(pages => {
+      return pages.groupid == groupid
+    })
+    let sections = this.props.sections.filter(sections => {
+      return sections.groupid == groupid
+    })
+    this.setState(Object.assign({}, this.state, {media, pages, sections}));
+  }
   componentDidMount(){
-    if (this.props.history.location.pathname === `/groupdashboard/${this.props.match.params.groupname}`) {
-      this.props.history.push(`/groupdashboard/${this.props.match.params.groupname}/media`)
-    };
+    
+    this.sort(this.props.match.params.groupid);
   }
   render(){
-    if (this.props.redirect) {
-      redirect.mainRedirect(this.props.history.push, this.props.user);
-    }
+    if (this.props.history.location.pathname === `/dashboard/${this.props.match.params.groupid}`) {
+      this.props.history.push(`/dashboard/${this.props.match.params.groupid}/media`)
+    };
     return(
       <div id='GroupDash'>
-        <div className='header'>
-          <h1>{this.props.match.params.groupname}</h1>
-        </div>
-        <div className='sidenav'>
-          <Link to={`/groupdashboard/${this.props.match.params.groupname}/media`}>Group Media</Link>
-          <Link to={`/groupdashboard/${this.props.match.params.groupname}/pages`}>Daily Pages</Link>
-          <Link to={`/groupdashboard/${this.props.match.params.groupname}/sections`}>Sections</Link>
-        </div>
         <div className='switchbucket'>
           <Switch>
-            <Route path='/groupdashboard/:groupname/media' render={() => {
-              return <Media media={this.props.media}/>
+            <Route path='/dashboard/:groupid/media' render={() => {
+              return <Media label={this.state.groupname}/>
             }}/>
-            <Route path='/groupdashboard/:groupname/pages' render={() => {
-              return <DailyPages pages={this.props.pages}/>
+            <Route path='/dashboard/:groupid/pages' render={() => {
+              return <DailyPages pages={this.state.pages} label={this.state.groupname}/>
             }}/>
-            <Route path='/groupdashboard/:groupname/media' render={() => {
-              return <Sections media={this.props.media}/>
+            <Route path='/dashboard/:groupid/sections/:sectionid' render={() => {
+              return <Sections sections={this.state.sections}/>
             }}/>
-            <Route component={Sections} path='/groupdashboard/:groupname/sections' />
           </Switch>
-        </div>
+        </div> 
       </div>
     )
   }
@@ -53,7 +71,9 @@ function mapStateToProps(state) {
     user: state.user,
     redirect: state.redirect,
     media: state.media,
-    pages: state.pages
+    pages: state.pages,
+    groups: state.groups,
+    sections: state.sections
   }
 }
-export default connect(mapStateToProps)(GroupDash);
+export default withRouter(connect(mapStateToProps)(GroupDash));

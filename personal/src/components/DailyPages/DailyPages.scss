@@ -6,48 +6,54 @@ $font: 'Open Sans', sans-serif;
 $lightWeight: 300;
 $normalWeight: 400;
 
-
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
 .DailyPages {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 1vw;
   font-family: $font;
+  h1 {
+    margin: 0 0 1vw 2.7vw;
+    font-size: 1.5rem;
+  }
   .pageBlock {
-    margin: 10px;
+    float: left;
+    margin: 0 0 2.7vw 2.7vw;
     position: relative;
-    display: flex;
-    align-items: center;
-    width: 70vw;
-    height: 8vh;
-    background-color: $blue;
-    border: solid 1px $mediumGray;
-    .groupName {
+    // display: flex;
+    // align-items: center;
+    width: 10vw;
+    height: 10vw;
+    background-color: white;
+    border: solid .5px $mediumGray;
+    .date {
       font-size: 1.5rem;
+    }
+    h3 {
+      float: left;
     }
   }
   .pageBlock > * {
-    margin: 0 10px;
+    margin: 5px 10px;
   }
   .transparent {
     margin: 0;
       position: absolute;
-      top: 0;
-      left: 0;
-      height: 8vh;
-      width: 70vw;
+      top: -.5px;
+      left: -.5px;
+      width: 10vw;
+      height: 10vw;
       background-color: rgba(255, 255, 255, .7) 
   }
+  .transparent:hover {
+    cursor: pointer;
+  }
   .link {
+    text-align: right;
+    text-decoration: none;
+    color: $darkGray;
     font-weight: $lightWeight;
       position: absolute;
-      top: calc(4vh - 1rem);
-      left: calc(30vw - 2rem);
+      left: 10px;
+      bottom: 10px;
+      right: 10px;
       font-size: 1.8rem;
   }
   .link:hover {

@@ -1,0 +1,66 @@
+#GroupForm {
+  background-color: #D8D8D8; }
+  #GroupForm h2:first-of-type {
+    display: inline; }
+  #GroupForm h2 {
+    font-size: 1.5rem; }
+  #GroupForm input {
+    margin-bottom: 5px;
+    height: 2rem;
+    width: 61vw;
+    font-size: 1.2rem;
+    font-weight: 300; }
+  #GroupForm form input {
+    width: 65vw;
+    margin-left: 20px;
+    float: left; }
+  #GroupForm form p {
+    float: left;
+    margin: 8px;
+    font-size: .8rem; }
+  #GroupForm form p:hover {
+    cursor: pointer; }
+  #GroupForm .sectionBlock {
+    clear: left;
+    margin-left: 40px; }
+    #GroupForm .sectionBlock .headerBox {
+      width: 70vw;
+      height: 1.5rem;
+      border-bottom: solid 1px #757677; }
+      #GroupForm .sectionBlock .headerBox h3 {
+        font-size: 1.2rem;
+        float: left; }
+      #GroupForm .sectionBlock .headerBox p {
+        float: right;
+        font-size: .8rem;
+        margin: 0 10px; }
+      #GroupForm .sectionBlock .headerBox p:hover {
+        cursor: pointer;
+        border-bottom: solid 1px #757677; }
+    #GroupForm .sectionBlock .daysList {
+      float: left;
+      background-color: white;
+      margin: 15px 15px 15px 0;
+      width: 12vw;
+      height: 12vw;
+      border: solid 1px #292C2F; }
+      #GroupForm .sectionBlock .daysList p {
+        margin: 5px; }
+    #GroupForm .sectionBlock .daysList:hover {
+      cursor: pointer; }
+    #GroupForm .sectionBlock .addDay {
+      float: left;
+      font-size: 6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      margin: 15px 0;
+      width: 12vw;
+      height: 12vw;
+      border: dashed 1px #292C2F; }
+    #GroupForm .sectionBlock .addDay:hover {
+      cursor: pointer; }
+
+#GroupForm > * {
+  margin: 20px; }

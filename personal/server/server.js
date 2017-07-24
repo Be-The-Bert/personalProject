@@ -63,7 +63,7 @@ passport.use(new Auth0Strategy({
 }));
 
 app.get('/auth0', passport.authenticate('auth0'));
-app.get(config.auth0.callbackURL, passport.authenticate('auth0', {successRedirect: 'http://localhost:3000/profile'}));
+app.get(config.auth0.callbackURL, passport.authenticate('auth0', {successRedirect: 'http://localhost:3000/dashboard'}));
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -101,7 +101,11 @@ app.get('/api/groups/:id', (req, res) => {
   db.getUserGroups([req.params.id])
   .then(data => res.status(200).send(data))
 })
-
+app.get('/api/sections/:id', (req, res) => {
+  const db = req.app.get('db');
+  db.getSections([req.params.id])
+  .then(data => res.status(200).send(data))
+})
 
 // LISTEN
 app.listen(config.port, () => console.log(`Server listening on port ${config.port}`))

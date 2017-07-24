@@ -1,0 +1,17 @@
+$blue: #57BDE8;
+$lightGray: #D8D8D8;
+$mediumGray: #757677;
+$darkGray: #292C2F;
+$font: 'Open Sans', sans-serif;
+$lightWeight: 300;
+$normalWeight: 400;
+
+#Sections{
+  .days {
+    min-height: 30vh;
+    width: 85vw;
+  }
+  .media {
+    width: 85vw;
+  }
+}

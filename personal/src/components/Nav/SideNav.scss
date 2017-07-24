@@ -1,0 +1,114 @@
+$blue: #86CFEF;
+$lightGray: #D8D8D8;
+$mediumGray: #757677;
+$darkGray: #292C2F;
+$font: 'Open Sans', sans-serif;
+$lightWeight: 300;
+$normalWeight: 400;
+
+#SideNav {
+  font-family: $font;
+  min-height: 100vh;
+  width: 15vw;
+  background-color: rgba($darkGray, .9);
+  color: $lightGray;
+  padding: 1vw;
+  h1{
+    color: $blue;
+    font-size: 1.5rem;
+  }
+  .user {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .profilePic {
+      height: 10vw;
+      width: 10vw;
+      background-position: center;
+      background-size: cover;
+      border-radius: 50%;
+      border: solid .5px $mediumGray;
+      overflow: hidden;
+    }
+    .userBlock {
+      display: flex;
+      margin: 10px;
+    }
+    .userBlock > * {
+      padding: 0 10px;
+    }
+    .border {
+      border-right: solid .5px $lightGray;
+    }
+    .logout:hover {
+      cursor: pointer;
+      color: $mediumGray;
+    }
+  }
+  .link {
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      text-decoration: none;
+      color: $lightGray;
+      height: 40px;
+      width: 13vw;
+      border-bottom: solid .5px $mediumGray;
+  }
+  .link:hover {
+      color: $mediumGray;
+      cursor: pointer;
+  }
+  .sublinkList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .sublink {
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      text-decoration: none;
+      color: $lightGray;
+      height: 40px;
+      width: 10vw;
+      border-bottom: solid .5px $mediumGray;
+  }
+  .sublink:hover {
+      color: $mediumGray;
+      cursor: pointer;
+  }
+  .subsublinkList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .sublink {
+      width: 7vw;
+    }
+  }
+  .linkActive {
+      color: $blue;
+  }
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+  }
+  .groupsList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  h2 {
+    color: $blue;
+    margin: 7vh 0 10px;
+    padding-bottom: 5px;
+    border-bottom: solid 1px $blue;
+    font-size: 1.2rem;
+  }
+}

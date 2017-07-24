@@ -18,15 +18,15 @@ class Nav extends Component {
     this.props.history.replace('/welcome');
   }
   render(){
-    let temp;
-    if (this.props.userInfo){
-      temp = this.props.userInfo.name.split(' ');
+    let name = [];
+    if (this.props.userInfo.name){
+      name = this.props.userInfo.name.split(' ');
     }
     return(
       <div id='Nav'>
-        <Link to='/profile/media' className='link'>Home</Link>
+        <Link to='/dashboard/media' className='link'>Dashboard</Link>
         <div className='block'>
-          <h3 className='border'>Hello, {temp[0]}</h3>
+          <h3 className='border'>Hello, {name[0]}</h3>
           <h3 className='logout' onClick={this.logout}>Logout</h3>
         </div>
       </div>

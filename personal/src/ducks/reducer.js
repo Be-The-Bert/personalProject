@@ -4,7 +4,8 @@ const initialState = {
   userInfo: {},
   media: [],
   pages: [],
-  groups: []
+  groups: [],
+  sections: []
 }
 
 const CHECKUSER = 'CHECKUSER';
@@ -12,6 +13,7 @@ const GETUSERINFO = 'GETUSERINFO';
 const GETMEDIA = 'GETMEDIA';
 const GETPAGES = 'GETPAGES';
 const GETGROUPS = 'GETGROUPS';
+const GETSECTIONS = 'GETSECTIONS';
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -40,6 +42,10 @@ export default function reducer(state = initialState, action) {
     case GETGROUPS + '_FULFILLED':
       return Object.assign({}, state, {
         groups: action.payload
+      })
+    case GETSECTIONS + '_FULFILLED':
+      return Object.assign({}, state, {
+        sections: action.payload
       })
     default:
       return state

@@ -29,7 +29,7 @@ class Groups extends Component {
                   </div>
                   <div className='buttonBlock'>
                     <Link to={'/'} className='button'>View Details</Link>
-                    <Link to={`/groupdashboard/${group.name}`} className='button'>Dashboard</Link>
+                    <Link to={`/groupdashboard/${group.groupid}`} className='button'>Dashboard</Link>
                   </div>
                 </div>
               )

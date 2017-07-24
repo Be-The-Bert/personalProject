@@ -35,8 +35,19 @@ $normalWeight: 400;
     margin: 20px;
     font-size: 1.8rem;
   }
-  .sidenav > *:hover{
-    border-bottom: solid 1px $lightGray;
+  .link:hover {
+    color: $mediumGray;
+    cursor: pointer;
+  }
+  .sectionList {
+    margin: -10px 0 0 40px;
+  }
+  .sectionList > * {
+    text-decoration: none;
+    color: $darkGray;
+    font-size: 1.4rem;
+    display: block;
+    margin: 10px 0
   }
   .switchbucket {
     margin: 45px 0 0 0 ;

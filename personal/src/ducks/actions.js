@@ -5,6 +5,7 @@ const GETUSERINFO = 'GETUSERINFO';
 const GETMEDIA = 'GETMEDIA';
 const GETPAGES = 'GETPAGES';
 const GETGROUPS = 'GETGROUPS';
+const GETSECTIONS = 'GETSECTIONS';
 
 export function checkUser(){
   console.log('checkuser action fired');
@@ -40,6 +41,13 @@ export function getGroups(id) {
   let promise = axios.get(`/api/groups/${id}`).then(res => res.data);
   return {
     type: GETGROUPS,
+    payload: promise
+  }
+}
+export function getSections(id) {
+  let promise = axios.get(`/api/sections/${id}`).then(res => res.data);
+  return {
+    type: GETSECTIONS,
     payload: promise
   }
 }

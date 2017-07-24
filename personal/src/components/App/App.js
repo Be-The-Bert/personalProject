@@ -4,14 +4,12 @@ import { connect } from 'react-redux';
 
 import { checkUser, getUserInfo } from './../../ducks/actions';
 
-import Nav from './../Nav/Nav';
 import Welcome from './../Welcome/Welcome';
-import Profile from './../Profile/Profile';
+import Dashboard from './../Dashboard/Dashboard';
 import DayView from './../DayView/DayView';
-import CreateGroup from './../CreateGroup/CreateGroup';
-import GroupDetails from './../GroupDetails/GroupDetails';
-import EditGroup from './../EditGroup/EditGroup';
-import GroupDash from './../GroupDash/GroupDash';
+import Create from './../Create-Edit/Create';
+import Details from './../Details/Details';
+import Edit from './../Create-Edit/Edit';
 
 import './../../reset.css';
 
@@ -26,20 +24,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          {this.props.user 
-          ?
-            <Nav />
-          :
-            null
-          }
             <Switch>
-              <Route component={Welcome} path='/welcome' />
-              <Route component={Profile} path='/profile'/>
+              <Route component={Welcome} path='/welcome' /> 
+              <Route component={Dashboard} path='/dashboard' />
+              <Route component={Create} path='/create' />
+              <Route component={Details} path='/details/:groupid' exact />
+              <Route component={Edit} path='/details/:groupid/edit' />
               <Route component={DayView} path='/pages/:dayid' />
-              <Route component={CreateGroup} path='/groups/create' />
-              <Route component={GroupDetails} path='/groups/details/:groupname' exact/>
-              <Route component={EditGroup} path='/groups/details/:groupname/edit' />
-              <Route component={GroupDash} path='/groupdashboard/:groupname' />
             </Switch>
       </div>
     );

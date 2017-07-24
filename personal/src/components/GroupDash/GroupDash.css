@@ -23,8 +23,17 @@
     color: #292C2F;
     margin: 20px;
     font-size: 1.8rem; }
-  #GroupDash .sidenav > *:hover {
-    border-bottom: solid 1px #D8D8D8; }
+  #GroupDash .link:hover {
+    color: #757677;
+    cursor: pointer; }
+  #GroupDash .sectionList {
+    margin: -10px 0 0 40px; }
+  #GroupDash .sectionList > * {
+    text-decoration: none;
+    color: #292C2F;
+    font-size: 1.4rem;
+    display: block;
+    margin: 10px 0; }
   #GroupDash .switchbucket {
     margin: 45px 0 0 0;
     display: flex;

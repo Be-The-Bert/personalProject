@@ -6,7 +6,7 @@ export default {
   },
   welcomeRedirect: (push, loggedin) => {
     if (loggedin) {
-      return push('/profile')
+      return push('/dashboard')
     }
   }
 }

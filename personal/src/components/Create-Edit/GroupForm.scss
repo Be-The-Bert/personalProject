@@ -1,0 +1,95 @@
+$blue: #57BDE8;
+$lightGray: #D8D8D8;
+$mediumGray: #757677;
+$darkGray: #292C2F;
+$font: 'Open Sans', sans-serif;
+$lightWeight: 300;
+$normalWeight: 400;
+
+#GroupForm {
+  background-color: $lightGray;
+  h2:first-of-type {
+    display: inline;
+  }
+  h2 {
+    font-size: 1.5rem;
+    // margin: 20px;
+  }
+  input {
+    margin-bottom: 5px;
+    height: 2rem;
+    width: 61vw;
+    font-size: 1.2rem;
+    font-weight: $lightWeight;
+  }
+  form {
+    input {
+      width: 65vw;
+      margin-left: 20px;
+      float: left;
+    }
+    p {
+      float: left;
+      margin: 8px;
+      font-size: .8rem;
+    }
+    p:hover {
+      cursor: pointer;
+    }
+  }
+  .sectionBlock {
+    clear: left;
+    margin-left: 40px;
+    .headerBox{
+      width: 70vw;
+      height: 1.5rem;
+      border-bottom: solid 1px $mediumGray;
+      // display: flex;
+      h3 {
+        font-size: 1.2rem;
+        float: left;
+      }
+      p {
+        float: right;
+        font-size: .8rem;
+        margin: 0 10px;
+      }
+      p:hover {
+        cursor: pointer;
+        border-bottom: solid 1px $mediumGray;
+      }
+    }
+    .daysList {
+      float: left;
+      background-color: white;
+      margin: 15px 15px 15px 0;
+      width: 12vw;
+      height: 12vw;
+      border: solid 1px $darkGray;
+      p {
+        margin: 5px;
+      }
+    }
+    .daysList:hover {
+      cursor: pointer;
+    }
+    .addDay {
+      float: left;
+      font-size: 6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      margin: 15px 0;
+      width: 12vw;
+      height: 12vw;
+      border: dashed 1px $darkGray;
+    }
+    .addDay:hover {
+      cursor: pointer;
+    }
+  }
+}
+#GroupForm > * {
+  margin: 20px;
+}
