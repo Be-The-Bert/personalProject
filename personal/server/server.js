@@ -107,5 +107,29 @@ app.get('/api/sections/:id', (req, res) => {
   .then(data => res.status(200).send(data))
 })
 
+app.post('/api/creategroup', (req, res) => {
+  const db = req.app.get('db');
+  db.postCreate([req.body.name])
+  .then(data => res.status(200).send(data));
+})
+app.post('/api/addmember', (req, res) => {
+  const db = req.app.get('db');
+  const { groupid, userid, admin } = req.body;
+  db.postMember([groupid, userid, admin])
+  .then(res.status(200).send('added member'));
+})
+app.post('/api/addsection', (req, res) => {
+  const db = req.app.get('db');
+  const { groupid, name } = req.body;
+  db.postSection([groupid, name])
+  .then(data => res.status(200).send(data));
+})
+app.post('/api/addday', (req, res) => {
+  const db = req.app.get('db');
+  const { sectionid, date } = req.body;
+  db.postDay([sectionid, date])
+  .then(data => res.status(200).send('added day'));
+})
+
 // LISTEN
 app.listen(config.port, () => console.log(`Server listening on port ${config.port}`))

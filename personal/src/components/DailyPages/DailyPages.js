@@ -21,7 +21,6 @@ class DailyPages extends Component {
   render(){
     return(
       <div className='DailyPages'>
-        <h1>{this.props.label} Daily Pages</h1>
           {
             this.props.pages.map((page, i) => {
               const clsname = `page${i}`

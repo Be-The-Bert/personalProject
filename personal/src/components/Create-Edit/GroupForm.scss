@@ -7,7 +7,15 @@ $lightWeight: 300;
 $normalWeight: 400;
 
 #GroupForm {
+  position: relative;
+  min-height: 100vh;
   background-color: $lightGray;
+  padding: 7.5vw 10vw;
+  font-family: $font;
+  h1 {
+    font-size: 4rem;
+    // margin-bottom: 20px;
+  }
   h2:first-of-type {
     display: inline;
   }
@@ -22,10 +30,19 @@ $normalWeight: 400;
     font-size: 1.2rem;
     font-weight: $lightWeight;
   }
+  .addMember {
+    // display: inline;
+    color: $lightGray;
+    background-color: $darkGray;
+    border: none;
+    height: 35px;
+    width: 120px;
+  }
   form {
+    margin-bottom: 120px;
     input {
-      width: 65vw;
-      margin-left: 20px;
+      width: calc(70vw - 35px);
+      margin-left: 40px;
       float: left;
     }
     p {
@@ -35,7 +52,12 @@ $normalWeight: 400;
     }
     p:hover {
       cursor: pointer;
+      border-bottom: solid 1px $mediumGray;
     }
+  }
+  .sectionList {
+    display: flex;
+    flex-direction: column;
   }
   .sectionBlock {
     clear: left;
@@ -86,8 +108,44 @@ $normalWeight: 400;
       border: dashed 1px $darkGray;
     }
     .addDay:hover {
-      cursor: pointer;
+      cursor: pointer; 
     }
+  }
+  // .boop {
+  //   position: relative;
+  // }
+  .createSaveButton {
+    // display: none;
+    position: absolute;
+    bottom: 2vw;
+    left: calc(50vw - 90px);
+    height: 70px;
+    width: 180px;
+    background-color: $darkGray;
+    color: $lightGray;
+    font-size: 1.5rem;
+  }
+  .createSaveButton:hover {
+    cursor: pointer;
+  }
+  .transparent{
+    z-index: 3;
+    background-color: rgba($darkGray, .9);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: -20px;
+    left: -20px;
+  }
+  .dayModul{
+    z-index: 4;
+    width: 30vw;
+    height: 20vw;
+    background-color: $mediumGray;
+    position: fixed;
+    top: calc(50vh - 10vw);
+    left: 35vw;
+
   }
 }
 #GroupForm > * {

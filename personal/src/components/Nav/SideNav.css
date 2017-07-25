@@ -1,4 +1,8 @@
 #SideNav {
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  top: 0;
   font-family: "Open Sans", sans-serif;
   min-height: 100vh;
   width: 15vw;
@@ -7,7 +11,8 @@
   padding: 1vw; }
   #SideNav h1 {
     color: #86CFEF;
-    font-size: 1.5rem; }
+    font-size: 1.4rem;
+    border-bottom: solid 1px #86CFEF; }
   #SideNav .user {
     height: 30vh;
     display: flex;
@@ -33,6 +38,7 @@
       cursor: pointer;
       color: #757677; }
   #SideNav .link {
+    font-size: 1.2rem;
     padding: 10px;
     display: flex;
     justify-content: flex-end;
@@ -50,6 +56,8 @@
     flex-direction: column;
     align-items: flex-end; }
   #SideNav .sublink {
+    background-color: rgba(41, 44, 47, 0.7);
+    font-size: 1rem;
     padding: 10px;
     display: flex;
     justify-content: flex-end;
@@ -60,14 +68,18 @@
     width: 10vw;
     border-bottom: solid 0.5px #757677; }
   #SideNav .sublink:hover {
-    color: #757677;
+    color: #292C2F;
     cursor: pointer; }
   #SideNav .subsublinkList {
     display: flex;
     flex-direction: column;
     align-items: flex-end; }
     #SideNav .subsublinkList .sublink {
-      width: 7vw; }
+      background-color: rgba(41, 44, 47, 0.7);
+      width: 7vw;
+      font-size: .8rem; }
+    #SideNav .subsublinkList .sublink:hover {
+      color: #D8D8D8; }
   #SideNav .linkActive {
     color: #86CFEF; }
   #SideNav .tabs {
@@ -83,4 +95,16 @@
     margin: 7vh 0 10px;
     padding-bottom: 5px;
     border-bottom: solid 1px #86CFEF;
-    font-size: 1.2rem; }
+    font-size: 1.4rem; }
+  #SideNav button {
+    width: 13vw;
+    background-color: #292C2F;
+    border: none;
+    padding: 10px;
+    margin: 10px 0; }
+  #SideNav button > * {
+    color: #D8D8D8;
+    text-decoration: none;
+    font-size: 1rem; }
+  #SideNav button > *:hover {
+    color: #757677; }

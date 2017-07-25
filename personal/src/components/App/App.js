@@ -38,8 +38,7 @@ class App extends Component {
 }
 function mapStateToProps(state) {
   return {
-    user: state.user,
-    userInfo: state.userInfo
+    user: state.user
   }
 }
 export default withRouter(connect(mapStateToProps, { checkUser, getUserInfo })(App));

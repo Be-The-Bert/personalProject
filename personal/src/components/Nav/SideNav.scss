@@ -7,6 +7,10 @@ $lightWeight: 300;
 $normalWeight: 400;
 
 #SideNav {
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  top: 0;
   font-family: $font;
   min-height: 100vh;
   width: 15vw;
@@ -15,7 +19,9 @@ $normalWeight: 400;
   padding: 1vw;
   h1{
     color: $blue;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    // margin-left: 20px;
+    border-bottom: solid 1px $blue;
   }
   .user {
     height: 30vh;
@@ -35,6 +41,7 @@ $normalWeight: 400;
     .userBlock {
       display: flex;
       margin: 10px;
+      // margin-left: -30px;
     }
     .userBlock > * {
       padding: 0 10px;
@@ -48,6 +55,7 @@ $normalWeight: 400;
     }
   }
   .link {
+    font-size: 1.2rem;
       padding: 10px;
       display: flex;
       justify-content: flex-end;
@@ -66,8 +74,11 @@ $normalWeight: 400;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    
   }
   .sublink {
+    background-color: rgba($darkGray, .7);
+    font-size: 1rem;
       padding: 10px;
       display: flex;
       justify-content: flex-end;
@@ -79,7 +90,7 @@ $normalWeight: 400;
       border-bottom: solid .5px $mediumGray;
   }
   .sublink:hover {
-      color: $mediumGray;
+      color: $darkGray;
       cursor: pointer;
   }
   .subsublinkList {
@@ -87,7 +98,12 @@ $normalWeight: 400;
     flex-direction: column;
     align-items: flex-end;
     .sublink {
+      background-color: rgba($darkGray, .7);
       width: 7vw;
+      font-size: .8rem;
+    }
+    .sublink:hover {
+      color: $lightGray;
     }
   }
   .linkActive {
@@ -109,6 +125,21 @@ $normalWeight: 400;
     margin: 7vh 0 10px;
     padding-bottom: 5px;
     border-bottom: solid 1px $blue;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+  }
+  button {
+    width: 13vw;
+    background-color: $darkGray;
+    border: none;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  button > * {
+    color: $lightGray;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  button > *:hover {
+    color: $mediumGray;
   }
 }

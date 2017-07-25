@@ -8,26 +8,24 @@ import DailyPages from './../../DailyPages/DailyPages';
 import './Sections.css';
 
 class Sections extends Component {
-  constructor (props){
-    super(props);
-    let section = {};
-    for (let i = 0; i < this.props.sections.length; i++) {
-      if (this.props.sections[i].id == this.props.match.params.sectionid) {
-        section = Object.assign(this.props.sections[i]);
-      }
-    }
-    this.state = {
-      sectionname: section.name
-    }
-  }
   render(){
+    let section = [''];
+    if (this.props.sections.length) {
+      section = this.props.sections.filter(section => {
+        return section.id == this.props.match.params.sectionid
+      })
+    }
+    console.log(section);
     return(
       <div id='Sections'>
+        <h1>{section[0].name}</h1>
+        <h2 className='header'>Pages</h2>
         <div className='days'>
-          <DailyPages pages={this.state.pages} label={this.state.sectionname} />
+          <DailyPages />
         </div>
+        <h2 className='header'>Media</h2>
         <div className='media'>
-          <Media media={this.state.media} label={this.state.sectionname}/> 
+          <Media/> 
         </div>
       </div>
     )
@@ -35,7 +33,7 @@ class Sections extends Component {
 }
 function mapStateToProps(state) {
   return {
-    user: state.user
+    sections: state.sections
   }
 }
 export default withRouter(connect(mapStateToProps)(Sections));

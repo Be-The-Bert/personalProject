@@ -1,3 +1,23 @@
 #Dashboard {
-  background-color: #86CFEF;
-  display: flex; }
+  background-color: #D8D8D8;
+  display: flex;
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+  padding-left: calc(15vw + 45px);
+  min-height: 100vh; }
+  #Dashboard .blueBox {
+    height: 100vh;
+    width: 45px;
+    position: fixed;
+    top: 0;
+    left: 15vw;
+    background-color: #86CFEF; }
+    #Dashboard .blueBox h1 {
+      position: absolute;
+      margin: 10px 0;
+      left: -396px;
+      width: 400px;
+      text-align: right;
+      transform: rotate(-90deg);
+      transform-origin: top right 0;
+      font-size: 2rem; }

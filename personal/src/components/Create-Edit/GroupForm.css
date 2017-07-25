@@ -1,5 +1,11 @@
 #GroupForm {
-  background-color: #D8D8D8; }
+  position: relative;
+  min-height: 100vh;
+  background-color: #D8D8D8;
+  padding: 7.5vw 10vw;
+  font-family: "Open Sans", sans-serif; }
+  #GroupForm h1 {
+    font-size: 4rem; }
   #GroupForm h2:first-of-type {
     display: inline; }
   #GroupForm h2 {
@@ -10,16 +16,28 @@
     width: 61vw;
     font-size: 1.2rem;
     font-weight: 300; }
-  #GroupForm form input {
-    width: 65vw;
-    margin-left: 20px;
-    float: left; }
-  #GroupForm form p {
-    float: left;
-    margin: 8px;
-    font-size: .8rem; }
-  #GroupForm form p:hover {
-    cursor: pointer; }
+  #GroupForm .addMember {
+    color: #D8D8D8;
+    background-color: #292C2F;
+    border: none;
+    height: 35px;
+    width: 120px; }
+  #GroupForm form {
+    margin-bottom: 120px; }
+    #GroupForm form input {
+      width: calc(70vw - 35px);
+      margin-left: 40px;
+      float: left; }
+    #GroupForm form p {
+      float: left;
+      margin: 8px;
+      font-size: .8rem; }
+    #GroupForm form p:hover {
+      cursor: pointer;
+      border-bottom: solid 1px #757677; }
+  #GroupForm .sectionList {
+    display: flex;
+    flex-direction: column; }
   #GroupForm .sectionBlock {
     clear: left;
     margin-left: 40px; }
@@ -61,6 +79,33 @@
       border: dashed 1px #292C2F; }
     #GroupForm .sectionBlock .addDay:hover {
       cursor: pointer; }
+  #GroupForm .createSaveButton {
+    position: absolute;
+    bottom: 2vw;
+    left: calc(50vw - 90px);
+    height: 70px;
+    width: 180px;
+    background-color: #292C2F;
+    color: #D8D8D8;
+    font-size: 1.5rem; }
+  #GroupForm .createSaveButton:hover {
+    cursor: pointer; }
+  #GroupForm .transparent {
+    z-index: 3;
+    background-color: rgba(41, 44, 47, 0.9);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: -20px;
+    left: -20px; }
+  #GroupForm .dayModul {
+    z-index: 4;
+    width: 30vw;
+    height: 20vw;
+    background-color: #757677;
+    position: fixed;
+    top: calc(50vh - 10vw);
+    left: 35vw; }
 
 #GroupForm > * {
   margin: 20px; }

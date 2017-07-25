@@ -35,15 +35,22 @@ class Dashboard extends Component {
       this.props.getSections(this.props.userInfo.id);
       this.setState({flag: false})
     }
+    console.log(this.props.match.params)
     return(
       <div id='Dashboard'>
         <SideNav />
           <Switch>
             <Route path='/dashboard/media' render={() => {
-              return <Media />
+              return <div>
+                <div className='blueBox'><h1>All Media</h1></div>
+                <Media />
+                </div>
             }}/>
             <Route path='/dashboard/pages' render={() => {
-              return <DailyPages pages={this.props.pages} label='All'/>
+              return <div>
+                <div className='blueBox'><h1>All Pages</h1></div>
+                <DailyPages />
+                </div>
             }}/>
             <Route component={GroupDash} path='/dashboard/:groupid' />
           </Switch>
@@ -55,9 +62,7 @@ function mapStateToProps(state) {
   return {
     user: state.user,
     redirect: state.redirect,
-    userInfo: state.userInfo,
-    media: state.media,
-    pages: state.pages
+    userInfo: state.userInfo
   }
 }
 export default connect(mapStateToProps, { getMedia, getPages, getGroups, getSections })(Dashboard);

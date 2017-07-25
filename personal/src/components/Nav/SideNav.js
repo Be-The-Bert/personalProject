@@ -5,20 +5,6 @@ import { Link, withRouter } from 'react-router-dom';
 import './SideNav.css';
 
 class SideNav extends Component {
-  constructor(){
-    super();
-    this.state = {
-      flags: []
-    }
-  }
-
-  active(id) {
-    let elArray = document.getElementsByClassName('linkActive');
-    for (let i = 0; i < elArray.length; i++) {
-      elArray[i].classList.remove('linkActive');
-    }
-    document.getElementById(id).classList.add('linkActive');
-  }
   render(){
     const bigpicStyle = {
       backgroundImage: `url(${this.props.userInfo.picture})`
@@ -27,17 +13,17 @@ class SideNav extends Component {
     if (this.props.userInfo.name){
       name = this.props.userInfo.name.split(' ');
     }
+ 
     return(
       <div id='SideNav'>
-        <h1>Dashboard</h1>
         <div className='user'>
           <div className='profilePic' style={bigpicStyle}></div>
           <div className='userBlock'>
             <h3 className='border'>Hello, {name[0]}</h3>
             <h3 className='logout' onClick={this.logout}>Logout</h3>
           </div>
-          
         </div>
+        <h1>Dashboard</h1>
         <div className='tabs'>
           <Link to='/dashboard/media' className={`link ${this.props.history.location.pathname === '/dashboard/media'? 'linkActive' : '' }`}>All Media</Link>
           <Link to='/dashboard/pages' className={`link ${this.props.history.location.pathname === '/dashboard/pages'? 'linkActive' : '' }`}>All Pages</Link>
@@ -66,12 +52,14 @@ class SideNav extends Component {
                       return <Link to={`/dashboard/${group.groupid}/sections/${section.id}`} className={`sublink ${this.props.history.location.pathname === `/dashboard/${group.groupid}/sections/${section.id}`? 'linkActive' : '' }`}>{section.name}</Link>
                     }
                   })}
+                  
                   </div>
                 :
                   null
                 }
             </div>
           })}
+          <button><Link to='/create/'>Create a Group</Link></button>
         </div>
       </div>
     )

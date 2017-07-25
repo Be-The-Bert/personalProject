@@ -1,6 +1,13 @@
-#Sections .days {
-  min-height: 30vh;
-  width: 85vw; }
+#Sections h1 {
+  font-size: 2rem;
+  margin: 2vw;
+  border-bottom: solid 1px rgba(117, 118, 119, 0.5);
+  width: 70vw;
+  padding: 10px 0; }
 
-#Sections .media {
-  width: 85vw; }
+#Sections .header {
+  font-size: 1.5rem;
+  margin: 2vw; }
+
+#Sections .days {
+  min-height: 30vh; }
