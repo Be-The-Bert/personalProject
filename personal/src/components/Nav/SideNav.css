@@ -34,14 +34,18 @@
       padding: 0 10px; }
     #SideNav .user .border {
       border-right: solid 0.5px #D8D8D8; }
+    #SideNav .user .logout {
+      text-decoration: none;
+      color: #D8D8D8; }
     #SideNav .user .logout:hover {
       cursor: pointer;
       color: #757677; }
   #SideNav .link {
+    background-color: rgba(41, 44, 47, 0.6);
     font-size: 1.2rem;
     padding: 10px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     text-decoration: none;
     color: #D8D8D8;
@@ -56,30 +60,39 @@
     flex-direction: column;
     align-items: flex-end; }
   #SideNav .sublink {
-    background-color: rgba(41, 44, 47, 0.7);
+    background-color: rgba(117, 118, 119, 0.4);
     font-size: 1rem;
     padding: 10px;
+    padding-left: 30px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     text-decoration: none;
     color: #D8D8D8;
     height: 40px;
-    width: 10vw;
+    width: 12vw;
     border-bottom: solid 0.5px #757677; }
   #SideNav .sublink:hover {
-    color: #292C2F;
+    color: rgba(41, 44, 47, 0.6);
     cursor: pointer; }
   #SideNav .subsublinkList {
     display: flex;
     flex-direction: column;
     align-items: flex-end; }
-    #SideNav .subsublinkList .sublink {
-      background-color: rgba(41, 44, 47, 0.7);
-      width: 7vw;
-      font-size: .8rem; }
-    #SideNav .subsublinkList .sublink:hover {
-      color: #D8D8D8; }
+  #SideNav .subsublink {
+    background-color: rgba(216, 216, 216, 0.3);
+    width: 11vw;
+    font-size: .8rem;
+    padding-left: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    color: #D8D8D8;
+    height: 40px;
+    border-bottom: solid 0.5px #757677; }
+  #SideNav .subsublink:hover {
+    color: rgba(41, 44, 47, 0.5); }
   #SideNav .linkActive {
     color: #86CFEF; }
   #SideNav .tabs {

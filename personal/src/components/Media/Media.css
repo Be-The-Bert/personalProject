@@ -12,8 +12,7 @@
     width: 18vw;
     background-size: cover;
     background-position: center;
-    border: solid 5px white;
-    border-radius: 2%; }
+    border: solid 5px white; }
     .Media .mediaBlock .transparent {
       position: absolute;
       top: -5px;

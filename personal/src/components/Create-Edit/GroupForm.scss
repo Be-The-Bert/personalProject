@@ -14,21 +14,45 @@ $normalWeight: 400;
   font-family: $font;
   h1 {
     font-size: 4rem;
-    // margin-bottom: 20px;
   }
   h2:first-of-type {
     display: inline;
   }
   h2 {
     font-size: 1.5rem;
-    // margin: 20px;
   }
   input {
     margin-bottom: 5px;
     height: 2rem;
-    width: 61vw;
+    width: calc(70vw - 70px);
     font-size: 1.2rem;
     font-weight: $lightWeight;
+  }
+  .memberList {
+    display: flex;
+    flex-direction: column;
+  }
+  .memberBlock {
+    width: 70vw;
+    margin-left: 40px;
+    h3 {
+      float: left;
+      font-size: 1.2rem;
+    }
+    h4 {
+      float: right;
+      margin: 0 0 0 30px;
+      font-size: .8rem;
+    }
+    p {
+      float: right;
+      margin: 0 0 0 30px;
+      font-size: .8rem;
+    }
+    p:hover {
+      cursor: pointer;
+      border-bottom: solid 1px $mediumGray;
+    }
   }
   .addMember {
     // display: inline;
@@ -36,24 +60,11 @@ $normalWeight: 400;
     background-color: $darkGray;
     border: none;
     height: 35px;
-    width: 120px;
+    width: 12vw;
+    margin: 0 60px;
   }
-  form {
-    margin-bottom: 120px;
-    input {
-      width: calc(70vw - 35px);
-      margin-left: 40px;
-      float: left;
-    }
-    p {
-      float: left;
-      margin: 8px;
-      font-size: .8rem;
-    }
-    p:hover {
-      cursor: pointer;
-      border-bottom: solid 1px $mediumGray;
-    }
+  .addMember:hover {
+    cursor: pointer;
   }
   .sectionList {
     display: flex;
@@ -66,7 +77,6 @@ $normalWeight: 400;
       width: 70vw;
       height: 1.5rem;
       border-bottom: solid 1px $mediumGray;
-      // display: flex;
       h3 {
         font-size: 1.2rem;
         float: left;
@@ -111,9 +121,23 @@ $normalWeight: 400;
       cursor: pointer; 
     }
   }
-  // .boop {
-  //   position: relative;
-  // }
+  form {
+    margin-bottom: 120px;
+    input {
+      width: calc(70vw - 35px);
+      margin-left: 40px;
+      float: left;
+    }
+    p {
+      float: left;
+      margin: 8px;
+      font-size: .8rem;
+    }
+    p:hover {
+      cursor: pointer;
+      border-bottom: solid 1px $mediumGray;
+    }
+  }
   .createSaveButton {
     // display: none;
     position: absolute;
@@ -134,18 +158,89 @@ $normalWeight: 400;
     height: 100vh;
     width: 100vw;
     position: fixed;
-    top: -20px;
-    left: -20px;
+    top: 0;
+    left: 0;
+  }
+  .memberModul{
+    z-index: 4;
+    width: 35vw;
+    height: 15vw;
+    background-color: $mediumGray;
+    position: fixed;
+    top: calc(50vh - 7.5vw);
+    left: 35vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      font-size: 1.5rem;
+      margin: 10px;
+    }
+    .inputBox {
+      display: flex;
+      align-items: center;
+      .emailInput {
+          font-size: 1rem;
+          width: 20vw;
+          margin: 10px;
+      }
+      .adminInput {
+        width: 15px;
+      }
+      h4 {
+        font-size: 1.2rem; 
+      }
+    }
+    button {
+      // display: inline;
+      color: $lightGray;
+      background-color: $darkGray;
+      border: none;
+      height: 30px;
+      width: 60px;
+      margin: 10px;
+    }
+    button:hover {
+      cursor: pointer;
+    }
   }
   .dayModul{
     z-index: 4;
     width: 30vw;
-    height: 20vw;
+    height: 15vw;
     background-color: $mediumGray;
     position: fixed;
-    top: calc(50vh - 10vw);
+    top: calc(50vh - 7.5vw);
     left: 35vw;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      font-size: 1.5rem;
+      margin: 10px;
+    }
+    .dateBox {
+      display: flex;
+      input {
+        font-size: 1rem;
+        width: 3rem;
+        margin: 10px
+      }
+    }
+    button {
+      // display: inline;
+      color: $lightGray;
+      background-color: $darkGray;
+      border: none;
+      height: 30px;
+      width: 60px;
+      margin: 10px;
+    }
+    button:hover {
+      cursor: pointer;
+    }
   }
 }
 #GroupForm > * {

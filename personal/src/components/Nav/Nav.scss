@@ -32,6 +32,10 @@ $normalWeight: 400;
   .border {
     border-right: solid 1px $lightGray;
   }
+  .logout {
+    text-decoration: none;
+    color: $lightGray;
+  }
   .logout:hover {
     cursor: pointer;
     color: $mediumGray;

@@ -44,7 +44,7 @@ passport.use(new Auth0Strategy({
 }, function(accessToken, refreshToken, extraParams, profile, done) {
     const db = app.get('db');
     let flag = false;
-    db.checkUser([profile.id]).then(user => {
+    db.getUserInfo([profile.id]).then(user => {
       console.log('user', user);
       if (user.length) {
         console.log('found');
@@ -72,7 +72,10 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
-
+app.get('/auth0/logout', function(req, res) {
+  req.logout();
+  res.redirect('http://localhost:3000/welcome');
+})
 
 // ENDPOINTS
 app.get('/api/checkuser', (req, res) => {
@@ -84,7 +87,7 @@ app.get('/api/checkuser', (req, res) => {
 });
 app.get('/api/userinfo', (req, res) =>{
   const db = req.app.get('db');
-  db.checkUser([req.user.id]).then(data => res.status(200).send(data))
+  db.getUserInfo([req.user.id]).then(data => res.status(200).send(data))
 });
 app.get('/api/media/:id', (req, res) => {
   const db = req.app.get('db');
@@ -103,13 +106,23 @@ app.get('/api/groups/:id', (req, res) => {
 })
 app.get('/api/sections/:id', (req, res) => {
   const db = req.app.get('db');
-  db.getSections([req.params.id])
+  db.getUserSections([req.params.id])
+  .then(data => res.status(200).send(data))
+})
+app.get('/api/users', (req, res) => {
+  const db = req.app.get('db');
+  db.getUsers()
+  .then(data => res.status(200).send(data))
+})
+app.get('/api/page/:dayid', (req, res) => {
+  const db = req.app.get('db');
+  db.getPage([req.params.dayid])
   .then(data => res.status(200).send(data))
 })
 
 app.post('/api/creategroup', (req, res) => {
   const db = req.app.get('db');
-  db.postCreate([req.body.name])
+  db.postGroup([req.body.name])
   .then(data => res.status(200).send(data));
 })
 app.post('/api/addmember', (req, res) => {

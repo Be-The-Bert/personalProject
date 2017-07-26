@@ -1,0 +1,54 @@
+$blue: #57BDE8;
+$lightGray: #D8D8D8;
+$mediumGray: #757677;
+$darkGray: #292C2F;
+$font: 'Open Sans', sans-serif;
+$lightWeight: 300;
+$normalWeight: 400;
+
+#DayView {
+  position: relative;
+  min-height: 100vh;
+  background-color: $lightGray;
+  padding: 7.5vw 10vw;
+  font-family: $font;
+  h1 {
+    font-size: 4rem;
+    margin: 20px 0;
+  }
+  h2 {
+    font-size: 1.5rem;
+    display: inline;
+    margin: 0 20px 0 0;
+  }
+  .notesBox {
+    min-height: 30vh;
+    min-width: 50vw;
+    max-width: 70vw;
+    // padding: 30px;
+    margin: 40px 0;
+    textarea {
+      display: block;
+      min-height: 30vh;
+      min-width: 80vw;
+      max-width: 80vw;
+      border: solid 15px rgba($mediumGray, .7);
+      border-radius: 4px;
+    }
+    textarea:focus {
+      outline: none;
+    }
+  }
+  .mediaBasket {
+    height: calc(100vh - 45px);
+    width: 70vw;
+    background-color: rgba($blue, 0.7);
+    position: fixed;
+    top: 45px;
+    right: 0;
+    h2 {
+      transform: rotate(-90deg);
+      transform-origin: top right 0;
+    }
+  }
+}

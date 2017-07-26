@@ -49,16 +49,21 @@ $normalWeight: 400;
     .border {
       border-right: solid .5px $lightGray;
     }
+    .logout {
+      text-decoration: none;
+      color: $lightGray;
+    }
     .logout:hover {
       cursor: pointer;
       color: $mediumGray;
     }
   }
   .link {
+    background-color: rgba($darkGray, .6);
     font-size: 1.2rem;
       padding: 10px;
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       align-items: center;
       text-decoration: none;
       color: $lightGray;
@@ -77,35 +82,46 @@ $normalWeight: 400;
     
   }
   .sublink {
-    background-color: rgba($darkGray, .7);
+    background-color: rgba($mediumGray, .4);
     font-size: 1rem;
       padding: 10px;
+      padding-left: 30px;
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       align-items: center;
       text-decoration: none;
       color: $lightGray;
       height: 40px;
-      width: 10vw;
+      width: 12vw;
       border-bottom: solid .5px $mediumGray;
   }
   .sublink:hover {
-      color: $darkGray;
+      color: rgba($darkGray, .6);
       cursor: pointer;
   }
   .subsublinkList {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    .sublink {
-      background-color: rgba($darkGray, .7);
-      width: 7vw;
-      font-size: .8rem;
-    }
-    .sublink:hover {
-      color: $lightGray;
-    }
   }
+    .subsublink {
+      background-color: rgba($lightGray, .3);
+      width: 11vw;
+      font-size: .8rem;
+      padding-left: 40px;
+
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      text-decoration: none;
+      color: $lightGray;
+      height: 40px;
+      border-bottom: solid .5px $mediumGray;
+    }
+    .subsublink:hover {
+      color: rgba($darkGray, .5);
+    }
   .linkActive {
       color: $blue;
   }

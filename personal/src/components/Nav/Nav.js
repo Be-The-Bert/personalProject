@@ -15,7 +15,7 @@ class Nav extends Component {
         <Link to='/dashboard/media' className='link'>Dashboard</Link>
         <div className='block'>
           <h3 className='border'>Hello, {name[0]}</h3>
-          <h3 className='logout'>Logout</h3>
+          <a href='http://localhost:4000/auth0/logout' className='logout'>Logout</a>
         </div>
       </div>
     )

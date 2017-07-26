@@ -14,9 +14,8 @@ class Create extends Component {
     axios.post('/api/creategroup', {name: groupname})
     .then(res => {
       groupid = res.data[0].id;
-      console.log(groupid);
       members.forEach(member => {
-        axios.post('/api/addmember', {groupid, userid: member.userid, admin: member.admin})
+        axios.post('/api/addmember', {groupid, userid: member.id, admin: member.admin})
       })
       sections.forEach(section => {
         axios.post('/api/addsection', {groupid, name: section.name})
@@ -30,10 +29,9 @@ class Create extends Component {
     })
   }
   render(){
-    // if (this.props.redirect) {
-    //   redirect.mainRedirect(this.props.history.push, this.props.user);
-    // }
-    console.log(this.props.match.params);
+    if (this.props.redirect) {
+      redirect.mainRedirect(this.props.history.push, this.props.user);
+    }
     return(
       <div className='CreateEdit'>
         <Nav />

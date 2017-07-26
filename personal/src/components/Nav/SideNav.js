@@ -20,7 +20,7 @@ class SideNav extends Component {
           <div className='profilePic' style={bigpicStyle}></div>
           <div className='userBlock'>
             <h3 className='border'>Hello, {name[0]}</h3>
-            <h3 className='logout' onClick={this.logout}>Logout</h3>
+            <a href='http://localhost:4000/auth0/logout' className='logout'>Logout</a>
           </div>
         </div>
         <h1>Dashboard</h1>
@@ -49,7 +49,7 @@ class SideNav extends Component {
                   <div className='subsublinkList'>
                   {this.props.sections.map(section => {
                     if (section.groupid === group.groupid) {
-                      return <Link to={`/dashboard/${group.groupid}/sections/${section.id}`} className={`sublink ${this.props.history.location.pathname === `/dashboard/${group.groupid}/sections/${section.id}`? 'linkActive' : '' }`}>{section.name}</Link>
+                      return <Link to={`/dashboard/${group.groupid}/sections/${section.id}`} className={`subsublink ${this.props.history.location.pathname === `/dashboard/${group.groupid}/sections/${section.id}`? 'linkActive' : '' }`}>{section.name}</Link>
                     }
                   })}
                   

@@ -19,7 +19,6 @@ class Media extends Component {
   }
   render(){
     console.log(this.props.media);
-    let group = this.props.media.filter(media => media.groupid - 2 == this.props.match.params.groupid);
     return(
       <div className='Media'>
           {this.props.media.map((media, i) => {

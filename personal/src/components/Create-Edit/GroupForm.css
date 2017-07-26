@@ -13,28 +13,38 @@
   #GroupForm input {
     margin-bottom: 5px;
     height: 2rem;
-    width: 61vw;
+    width: calc(70vw - 70px);
     font-size: 1.2rem;
     font-weight: 300; }
+  #GroupForm .memberList {
+    display: flex;
+    flex-direction: column; }
+  #GroupForm .memberBlock {
+    width: 70vw;
+    margin-left: 40px; }
+    #GroupForm .memberBlock h3 {
+      float: left;
+      font-size: 1.2rem; }
+    #GroupForm .memberBlock h4 {
+      float: right;
+      margin: 0 0 0 30px;
+      font-size: .8rem; }
+    #GroupForm .memberBlock p {
+      float: right;
+      margin: 0 0 0 30px;
+      font-size: .8rem; }
+    #GroupForm .memberBlock p:hover {
+      cursor: pointer;
+      border-bottom: solid 1px #757677; }
   #GroupForm .addMember {
     color: #D8D8D8;
     background-color: #292C2F;
     border: none;
     height: 35px;
-    width: 120px; }
-  #GroupForm form {
-    margin-bottom: 120px; }
-    #GroupForm form input {
-      width: calc(70vw - 35px);
-      margin-left: 40px;
-      float: left; }
-    #GroupForm form p {
-      float: left;
-      margin: 8px;
-      font-size: .8rem; }
-    #GroupForm form p:hover {
-      cursor: pointer;
-      border-bottom: solid 1px #757677; }
+    width: 12vw;
+    margin: 0 60px; }
+  #GroupForm .addMember:hover {
+    cursor: pointer; }
   #GroupForm .sectionList {
     display: flex;
     flex-direction: column; }
@@ -79,6 +89,19 @@
       border: dashed 1px #292C2F; }
     #GroupForm .sectionBlock .addDay:hover {
       cursor: pointer; }
+  #GroupForm form {
+    margin-bottom: 120px; }
+    #GroupForm form input {
+      width: calc(70vw - 35px);
+      margin-left: 40px;
+      float: left; }
+    #GroupForm form p {
+      float: left;
+      margin: 8px;
+      font-size: .8rem; }
+    #GroupForm form p:hover {
+      cursor: pointer;
+      border-bottom: solid 1px #757677; }
   #GroupForm .createSaveButton {
     position: absolute;
     bottom: 2vw;
@@ -96,16 +119,73 @@
     height: 100vh;
     width: 100vw;
     position: fixed;
-    top: -20px;
-    left: -20px; }
+    top: 0;
+    left: 0; }
+  #GroupForm .memberModul {
+    z-index: 4;
+    width: 35vw;
+    height: 15vw;
+    background-color: #757677;
+    position: fixed;
+    top: calc(50vh - 7.5vw);
+    left: 35vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    #GroupForm .memberModul h1 {
+      font-size: 1.5rem;
+      margin: 10px; }
+    #GroupForm .memberModul .inputBox {
+      display: flex;
+      align-items: center; }
+      #GroupForm .memberModul .inputBox .emailInput {
+        font-size: 1rem;
+        width: 20vw;
+        margin: 10px; }
+      #GroupForm .memberModul .inputBox .adminInput {
+        width: 15px; }
+      #GroupForm .memberModul .inputBox h4 {
+        font-size: 1.2rem; }
+    #GroupForm .memberModul button {
+      color: #D8D8D8;
+      background-color: #292C2F;
+      border: none;
+      height: 30px;
+      width: 60px;
+      margin: 10px; }
+    #GroupForm .memberModul button:hover {
+      cursor: pointer; }
   #GroupForm .dayModul {
     z-index: 4;
     width: 30vw;
-    height: 20vw;
+    height: 15vw;
     background-color: #757677;
     position: fixed;
-    top: calc(50vh - 10vw);
-    left: 35vw; }
+    top: calc(50vh - 7.5vw);
+    left: 35vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    #GroupForm .dayModul h1 {
+      font-size: 1.5rem;
+      margin: 10px; }
+    #GroupForm .dayModul .dateBox {
+      display: flex; }
+      #GroupForm .dayModul .dateBox input {
+        font-size: 1rem;
+        width: 3rem;
+        margin: 10px; }
+    #GroupForm .dayModul button {
+      color: #D8D8D8;
+      background-color: #292C2F;
+      border: none;
+      height: 30px;
+      width: 60px;
+      margin: 10px; }
+    #GroupForm .dayModul button:hover {
+      cursor: pointer; }
 
 #GroupForm > * {
   margin: 20px; }
