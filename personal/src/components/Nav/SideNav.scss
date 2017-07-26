@@ -17,12 +17,6 @@ $normalWeight: 400;
   background-color: rgba($darkGray, .9);
   color: $lightGray;
   padding: 1vw;
-  h1{
-    color: $blue;
-    font-size: 1.4rem;
-    // margin-left: 20px;
-    border-bottom: solid 1px $blue;
-  }
   .user {
     height: 30vh;
     display: flex;
@@ -117,10 +111,10 @@ $normalWeight: 400;
       text-decoration: none;
       color: $lightGray;
       height: 40px;
-      border-bottom: solid .5px $mediumGray;
+      border-bottom: solid .5px rgba($darkGray, .5);
     }
     .subsublink:hover {
-      color: rgba($darkGray, .5);
+      color: rgba($darkGray, .6);
     }
   .linkActive {
       color: $blue;
@@ -138,7 +132,7 @@ $normalWeight: 400;
   }
   h2 {
     color: $blue;
-    margin: 7vh 0 10px;
+    margin: 2vh 0 10px;
     padding-bottom: 5px;
     border-bottom: solid 1px $blue;
     font-size: 1.4rem;

@@ -9,10 +9,6 @@
   background-color: rgba(41, 44, 47, 0.9);
   color: #D8D8D8;
   padding: 1vw; }
-  #SideNav h1 {
-    color: #86CFEF;
-    font-size: 1.4rem;
-    border-bottom: solid 1px #86CFEF; }
   #SideNav .user {
     height: 30vh;
     display: flex;
@@ -90,9 +86,9 @@
     text-decoration: none;
     color: #D8D8D8;
     height: 40px;
-    border-bottom: solid 0.5px #757677; }
+    border-bottom: solid 0.5px rgba(41, 44, 47, 0.5); }
   #SideNav .subsublink:hover {
-    color: rgba(41, 44, 47, 0.5); }
+    color: rgba(41, 44, 47, 0.6); }
   #SideNav .linkActive {
     color: #86CFEF; }
   #SideNav .tabs {
@@ -105,7 +101,7 @@
     align-items: flex-end; }
   #SideNav h2 {
     color: #86CFEF;
-    margin: 7vh 0 10px;
+    margin: 2vh 0 10px;
     padding-bottom: 5px;
     border-bottom: solid 1px #86CFEF;
     font-size: 1.4rem; }

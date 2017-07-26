@@ -23,7 +23,7 @@ class SideNav extends Component {
             <a href='http://localhost:4000/auth0/logout' className='logout'>Logout</a>
           </div>
         </div>
-        <h1>Dashboard</h1>
+        <h2>Dashboard</h2>
         <div className='tabs'>
           <Link to='/dashboard/media' className={`link ${this.props.history.location.pathname === '/dashboard/media'? 'linkActive' : '' }`}>All Media</Link>
           <Link to='/dashboard/pages' className={`link ${this.props.history.location.pathname === '/dashboard/pages'? 'linkActive' : '' }`}>All Pages</Link>
