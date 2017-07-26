@@ -1,0 +1,10 @@
+#MediaBasket .blueSlide {
+  height: calc(100vh - 45px);
+  width: 70vw;
+  background-color: rgba(87, 189, 232, 0.7);
+  position: fixed;
+  top: 45px;
+  right: 0; }
+  #MediaBasket .blueSlide h2 {
+    transform: rotate(-90deg);
+    transform-origin: top right 0; }

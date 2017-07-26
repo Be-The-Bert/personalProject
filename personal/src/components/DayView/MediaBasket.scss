@@ -1,0 +1,22 @@
+$blue: #57BDE8;
+$lightGray: #D8D8D8;
+$mediumGray: #757677;
+$darkGray: #292C2F;
+$font: 'Open Sans', sans-serif;
+$lightWeight: 300;
+$normalWeight: 400;
+
+#MediaBasket {
+  .blueSlide {
+    height: calc(100vh - 45px);
+    width: 70vw;
+    background-color: rgba($blue, 0.7);
+    position: fixed;
+    top: 45px;
+    right: 0;
+    h2 {
+      transform: rotate(-90deg);
+      transform-origin: top right 0;
+    }
+  }
+}

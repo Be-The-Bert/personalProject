@@ -5,6 +5,7 @@ const massive = require('massive');
 const session = require('express-session');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
+const socket = require('socket.io');
 
 
 // REQUIRE LOCAL FILES
@@ -145,4 +146,27 @@ app.post('/api/addday', (req, res) => {
 })
 
 // LISTEN
-app.listen(config.port, () => console.log(`Server listening on port ${config.port}`))
+const io = socket(app.listen(config.port, () => console.log(`Server listening on port ${config.port}`)))
+
+
+// SOCKETS
+
+io.on('connection', socket => {
+  console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+  socket.on('basket', data => {
+    socket.join(data.basket);
+  });
+  socket.on('upload', data => {
+    console.log('i got an upload', data);
+    // const db = app.get('db');
+    // db.postGroup([data.testtext]).then(
+    // )
+    io.to(data.basket).emit('receive testtext', data.testtext)
+  })
+  socket.on('leave basket', data => {
+    socket.leave(data.basket);
+  })
+})

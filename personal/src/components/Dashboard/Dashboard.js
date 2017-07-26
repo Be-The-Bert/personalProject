@@ -42,13 +42,13 @@ class Dashboard extends Component {
           <Switch>
             <Route path='/dashboard/media' render={() => {
               return <div>
-                <div className='blueBox'><h1>All Media</h1></div>
+                <div className='blueBox'><h1>All - Media</h1></div>
                 <Media />
                 </div>
             }}/>
             <Route path='/dashboard/pages' render={() => {
               return <div>
-                <div className='blueBox'><h1>All Pages</h1></div>
+                <div className='blueBox'><h1>All - Pages</h1></div>
                 <DailyPages />
                 </div>
             }}/>

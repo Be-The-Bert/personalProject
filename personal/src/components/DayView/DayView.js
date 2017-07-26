@@ -5,6 +5,7 @@ import axios from 'axios';
 import redirect from './../../services/redirect';
 
 import Nav from './../Nav/Nav';
+import MediaBasket from './MediaBasket';
 
 import './DayView.css';
 
@@ -44,9 +45,7 @@ class DayView extends Component {
           <h2>Notes</h2>
           <textarea>notes</textarea>
         </div>
-        <div className='mediaBasket'>
-          <h2>Media Basket</h2>
-        </div>
+        <MediaBasket />
       </div> 
     )
   }

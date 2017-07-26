@@ -33,19 +33,19 @@ class GroupDash extends Component {
           <Switch>
             <Route path='/dashboard/:groupid/media' render={() => {
               return <div>
-                <div className='blueBox'><h1>{group[0].name} Media</h1></div>
+                <div className='blueBox'><h1>{group[0].name} - Media</h1></div>
                 <Media />
               </div>
             }}/>
             <Route path='/dashboard/:groupid/pages' render={() => {
               return <div>
-                <div className='blueBox'><h1>{group[0].name} Pages</h1></div>
+                <div className='blueBox'><h1>{group[0].name} - Pages</h1></div>
                 <DailyPages />
               </div>
             }}/>
             <Route path='/dashboard/:groupid/sections/:sectionid' render={() => {
               return <div>
-                <div className='blueBox'><h1>{group[0].name} Sections</h1></div>
+                <div className='blueBox'><h1>{group[0].name} - Sections</h1></div>
                 <Sections/>
               </div>
             }}/>
