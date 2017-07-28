@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import Media from './../Media/Media';
-import Uploader from './../UploaderTest';
 
 import './MediaBasket.css';
 
@@ -26,7 +25,6 @@ class MediaBasket extends Component {
   render(){
     return(
       <div id='MediaBasket'>
-        <Uploader />
         <div className={`${this.state.basketflag ? 'blueSlideOut' : ''} blueSlide`}>
             <h1 className='sideways' onClick={this.toggleBasket}>Media Basket</h1>
           {!this.state.basketflag

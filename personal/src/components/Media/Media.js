@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 
 import { updateMedia } from './../../ducks/actions';
 
+import Uploader from './../UploaderTest';
+
 import './Media.css';
 
 const io = require('socket.io-client');
@@ -71,6 +73,7 @@ class Media extends Component {
     return(
       <div className='Media'>
         <button onClick={this.force}>force</button>
+        <Uploader />
           {this.props.media.map((media, i) => {
             const imagestyle = {backgroundImage: `url(${media.img})`};
             const clsname = `media${i}`

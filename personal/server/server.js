@@ -7,17 +7,18 @@ const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const socket = require('socket.io');
 const socketWildCard = require('socketio-wildcard')();
-const AWS = require('aws-sdk');
-const cors = require('cors');
+const cloud = require('cloudinary');
 
 // REQUIRE LOCAL FILES
 const config = require('./../config');
 
-AWS.config.update({
-  accessKeyId: config.s3.AccessKeyID,
-  secretAccessKey: config.s3.SecretAccessKey,
-  subregion: 'us-east-2'
-})
+cloud.config({ 
+  cloud_name: 'be-the-bert', 
+  api_key: config.cloud.apiKey, 
+  api_secret: config.cloud.apiSecret 
+});
+
+
 
 // INVOKE EXPRESS AND SET UP MIDDLEWARE
 const app = express();
@@ -90,17 +91,14 @@ app.get('/auth0/logout', function(req, res) {
 
 
 // ENDPOINTS
-//  app.get('/sign_s3', require('react-s3-upload/S3Sign')({
-//     S3_BUCKET:'class-baskets', 
-//     unique: false
-//   }));
 
-app.use('/s3', require('react-dropzone-s3-uploader/s3router')({
-  bucket: 'class-basket',                           // required 
-  region: 'us-east-2',                            // optional 
-  headers: {'Access-Control-Allow-Origin': '*'},  // optional 
-  ACL: 'public-read',                                 // this is the default - set to `public-read` to let anyone view uploads 
-}));
+app.post('/api/upload', (req, res) => {
+  console.log(req.body.result);
+  cloud.v2.uploader.upload(req.body.result, response => {
+    res.status(200).send(response);
+  })
+});
+
 
 
 

@@ -1,47 +1,57 @@
 import React, { Component } from 'react';
-import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
-// import ReactUpload from 'react-s3-upload';
-
-// export default class Uploader extends Component {
-//   render() {
-//     return (
-//       <div>
-//         hiya
-//       <ReactUpload 
-//         onProgress={ (pct) => { console.log(pct) } }
-//         onComplete={ (url) => { console.log(url) } }
-//       />
-//       </div>
-//     )
-//   }
-// }
-
-
-
-
+import axios from 'axios';
+import { Image } from 'cloudinary-react';
 
 
 export default class Uploader extends Component {
-  handleFinishedUpload = info => {
-    console.log('File uploaded with filename', info.filename)
-    console.log('Access it on s3 at', info.fileUrl)
+  constructor() {
+    super();
+    this.loadImageFileAsURL = this.loadImageFileAsURL.bind(this);
+    this.upload = this.upload.bind(this);
   }
- 
-  render() {
-    const uploadOptions = {
-      server: 'http://localhost:4000',
-      signingUrlQueryParams: {uploadType: 'test'},
-        signingUrl:"/s3/sign",
-        signingUrlMethod:"GET"
+  loadImageFileAsURL(e) {
+    let files = e.target.value
+    console.log(files)
+		// var fileToLoad = file
+
+		// var fileReader = new FileReader();
+    // let result;
+		// fileReader.onload = function(fileLoadedEvent) 
+		// {
+		// 	// var textAreaFileContents = document.getElementById("textAreaFileContents");
+	
+		// 	result = fileLoadedEvent.target.result;
+    // console.log(result);
+		// };
+
+    // 
+}
+  upload(e) {
+    let files = e.target.files;
+    let file = files[0];
+    let fileReader = new FileReader();
+    let result;
+    fileReader.onload = function(fileLoadedEvent){
+      result = fileLoadedEvent.target.result;
+      console.log(result);
+      axios.post('/api/upload', {result}).then(res => console.log(res.data))
     }
- 
+    fileReader.readAsDataURL(file);
+    // console.log(file);
+    // this.loadImageFileAsURL(file);
+    // let formData = new FormData();
+    // formData.append('file', file);
+    // console.log(formData);
+  }
+  render() {
     return (
-      <DropzoneS3Uploader 
-      s3Url='https://class-baskets.s3.amazonaws.com/'
-        onFinish={this.handleFinishedUpload} 
-        upload={uploadOptions}
+      <div id='Uploader'>
+        hi
         
-      />
+          
+         <input type='file' onChange={this.upload}></input> 
+        <Image cloudName="be-the-bert"/>
+      </div>
     )
   }
 }
