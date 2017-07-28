@@ -30,17 +30,17 @@ export default class Uploader extends Component {
   render() {
     const uploadOptions = {
       server: 'http://localhost:4000',
-      s3Url: 'https://class-baskets.s3.amazonaws.com/',
       signingUrlQueryParams: {uploadType: 'test'},
+        signingUrl:"/s3/sign",
+        signingUrlMethod:"GET"
     }
  
     return (
       <DropzoneS3Uploader 
-        signingUrl="/s3/sign"
-        signingUrlMethod="GET"
+      s3Url='https://class-baskets.s3.amazonaws.com/'
         onFinish={this.handleFinishedUpload} 
         upload={uploadOptions}
-        server='http://localhost:4000'
+        
       />
     )
   }

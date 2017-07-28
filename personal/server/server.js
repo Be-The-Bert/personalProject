@@ -7,12 +7,17 @@ const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const socket = require('socket.io');
 const socketWildCard = require('socketio-wildcard')();
-
-
+const AWS = require('aws-sdk');
+const cors = require('cors');
 
 // REQUIRE LOCAL FILES
 const config = require('./../config');
 
+AWS.config.update({
+  accessKeyId: config.s3.AccessKeyID,
+  secretAccessKey: config.s3.SecretAccessKey,
+  subregion: 'us-east-2'
+})
 
 // INVOKE EXPRESS AND SET UP MIDDLEWARE
 const app = express();
@@ -90,12 +95,12 @@ app.get('/auth0/logout', function(req, res) {
 //     unique: false
 //   }));
 
-// app.use('/s3', require('react-dropzone-s3-uploader/s3router')({
-//   bucket: 'class-basket',                           // required 
-//   region: 'us-east-2',                            // optional 
-//   headers: {'Access-Control-Allow-Origin': '*'},  // optional 
-//   ACL: 'public-read',                                 // this is the default - set to `public-read` to let anyone view uploads 
-// }));
+app.use('/s3', require('react-dropzone-s3-uploader/s3router')({
+  bucket: 'class-basket',                           // required 
+  region: 'us-east-2',                            // optional 
+  headers: {'Access-Control-Allow-Origin': '*'},  // optional 
+  ACL: 'public-read',                                 // this is the default - set to `public-read` to let anyone view uploads 
+}));
 
 
 
