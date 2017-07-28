@@ -2,9 +2,59 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import { updateMedia } from './../../ducks/actions';
+
 import './Media.css';
 
+const io = require('socket.io-client');
+const socket = io();
+
 class Media extends Component {
+  constructor(){
+    super();
+    this.state = {
+      userid: null
+    }
+    socket.on('please update', payload => {
+      this.dispatchUpdateCheck(payload)
+    })
+    socket.on('receive media data', payload => {
+      this.dispatchMediaActionCreator(payload)
+    })
+    this.dispatchMediaActionCreator = this.dispatchMediaActionCreator.bind(this);
+    this.dispatchUpdateCheck = this.dispatchUpdateCheck.bind(this);
+    this.updateMedia = this.updateMedia.bind(this);
+    this.uploadMedia = this.uploadMedia.bind(this);
+    this.force = this.force.bind(this);
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.userInfo.id && nextProps.userInfo.id !== this.state.userid) {
+      this.setState({userid: nextProps.userInfo.id})
+      socket.emit('join', {userid: nextProps.userid});
+    }
+  }
+  componentWillUnmount() {
+    socket.emit('leave', {userid: this.state.userid});
+  }
+  dispatchMediaActionCreator(payload) {
+    if (JSON.stringify(this.props.media) !== JSON.stringify(payload)) {
+      this.props.updateMedia(payload);
+    }
+  }
+  dispatchUpdateCheck () {
+    if (this.state.userid !== null) {
+      socket.emit('update check', {userid: this.state.userid})
+    }
+  }
+  updateMedia () {
+    //SEND A SOCKET EMIT WITH DATA UPDATES
+  }
+  uploadMedia () {
+    //SEND A SOCKET EMIT WITH NEW DATA
+  }
+  force () {
+    socket.emit('force update check')
+  }
   hoverOn(name) {
     let elArray = document.getElementsByClassName(name);
     for (let i = 0; i < elArray.length; i++) {
@@ -18,9 +68,9 @@ class Media extends Component {
     }
   }
   render(){
-    console.log(this.props.media);
     return(
       <div className='Media'>
+        <button onClick={this.force}>force</button>
           {this.props.media.map((media, i) => {
             const imagestyle = {backgroundImage: `url(${media.img})`};
             const clsname = `media${i}`
@@ -67,7 +117,8 @@ class Media extends Component {
 }
 function mapStateToProps(state) {
   return {
+    userInfo: state.userInfo,
     media: state.media
   }
 }
-export default withRouter(connect(mapStateToProps)(Media));
+export default withRouter(connect(mapStateToProps, { updateMedia })(Media));

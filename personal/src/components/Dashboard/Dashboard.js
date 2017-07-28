@@ -43,7 +43,7 @@ class Dashboard extends Component {
             <Route path='/dashboard/media' render={() => {
               return <div>
                 <div className='blueBox'><h1>All - Media</h1></div>
-                <Media />
+                <Media userid={this.props.userInfo.id}/>
                 </div>
             }}/>
             <Route path='/dashboard/pages' render={() => {

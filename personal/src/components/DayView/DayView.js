@@ -38,11 +38,11 @@ class DayView extends Component {
     return(
       <div id='DayView'>
         <Nav />
-        <h1>{this.state.pageInfo.groupname}</h1>
-        <h2>{this.state.pageInfo.sectionname}</h2>
-        <h2>{this.state.pageInfo.date}</h2>  
+        <h1 className='header'>{this.state.pageInfo.groupname}</h1>
+        <h2 className='subHeader'>{this.state.pageInfo.sectionname}</h2>
+        <h2 className='subHeader'>{this.state.pageInfo.date}</h2>  
         <div className='notesBox'>
-          <h2>Notes</h2>
+          <h2 className='subHeader'>Notes</h2>
           <textarea>notes</textarea>
         </div>
         <MediaBasket />

@@ -4,18 +4,21 @@
   background-color: #D8D8D8;
   padding: 7.5vw 10vw;
   font-family: "Open Sans", sans-serif; }
-  #DayView h1 {
+  #DayView .header {
     font-size: 4rem;
     margin: 20px 0; }
-  #DayView h2 {
+  #DayView .subHeader {
     font-size: 1.5rem;
     display: inline;
     margin: 0 20px 0 0; }
   #DayView .notesBox {
-    min-height: 30vh;
-    min-width: 50vw;
-    max-width: 70vw;
+    width: 80vw;
     margin: 40px 0; }
+    #DayView .notesBox .subHeader {
+      display: block;
+      padding: 5px 0;
+      margin: -20px 0 20px 0;
+      border-bottom: solid 0.5px rgba(117, 118, 119, 0.7); }
     #DayView .notesBox textarea {
       display: block;
       min-height: 30vh;

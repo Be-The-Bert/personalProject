@@ -7,16 +7,43 @@ $lightWeight: 300;
 $normalWeight: 400;
 
 #MediaBasket {
+  // display: none;
   .blueSlide {
     height: calc(100vh - 45px);
-    width: 70vw;
-    background-color: rgba($blue, 0.7);
+    width: 85vw;
+    background-color: rgba($blue, 0.9);
+    padding: 0 0 0 20px;
     position: fixed;
     top: 45px;
-    right: 0;
-    h2 {
-      transform: rotate(-90deg);
+    right: calc(-85vw + 45px);
+    transition: all 1s ease-in-out;
+    .sideways {
+      font-size: 1.5rem;
+      
+      // width: calc(100vh - 45px);
+      color: rgba($darkGray, 0.7);
+      position: absolute;
+      top: calc(100vh - 220px);
+      left: -140px;
+      transform: rotate(270deg);
       transform-origin: top right 0;
     }
+    .sideways:hover {
+      cursor: pointer;
+    }
+  }
+  .blueSlideOut {
+    right: 0;
+  }
+  .clickCatch {
+    // background-color: black;
+    height: calc(100vh - 45px);
+    width: 15vw;
+    position: fixed;
+    top: 45px;
+    left: 0;
+  }
+  .clickCatch:hover {
+    cursor: pointer;
   }
 }

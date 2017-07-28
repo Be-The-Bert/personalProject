@@ -12,21 +12,26 @@ $normalWeight: 400;
   background-color: $lightGray;
   padding: 7.5vw 10vw;
   font-family: $font;
-  h1 {
+  .header {
     font-size: 4rem;
     margin: 20px 0;
   }
-  h2 {
+  .subHeader {
     font-size: 1.5rem;
     display: inline;
     margin: 0 20px 0 0;
   }
   .notesBox {
-    min-height: 30vh;
-    min-width: 50vw;
-    max-width: 70vw;
+    width: 80vw;
     // padding: 30px;
     margin: 40px 0;
+    .subHeader {
+      display: block;
+      padding: 5px 0;
+      margin: -20px 0 20px 0;
+      // width: 
+      border-bottom: solid .5px rgba($mediumGray, .7);
+    }
     textarea {
       display: block;
       min-height: 30vh;

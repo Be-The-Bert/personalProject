@@ -6,6 +6,7 @@ const GETMEDIA = 'GETMEDIA';
 const GETPAGES = 'GETPAGES';
 const GETGROUPS = 'GETGROUPS';
 const GETSECTIONS = 'GETSECTIONS';
+const UPDATEMEDIA = 'UPDATEMEDIA';
 
 export function checkUser(){
   console.log('checkuser action fired');
@@ -51,3 +52,13 @@ export function getSections(id) {
     payload: promise
   }
 }
+export function updateMedia(payload) {
+  console.log('update media fired');
+  return {
+    type: UPDATEMEDIA,
+    payload
+  }
+}
+
+
+

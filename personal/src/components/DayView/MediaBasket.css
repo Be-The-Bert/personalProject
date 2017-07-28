@@ -1,10 +1,32 @@
 #MediaBasket .blueSlide {
   height: calc(100vh - 45px);
-  width: 70vw;
-  background-color: rgba(87, 189, 232, 0.7);
+  width: 85vw;
+  background-color: rgba(87, 189, 232, 0.9);
+  padding: 0 0 0 20px;
   position: fixed;
   top: 45px;
-  right: 0; }
-  #MediaBasket .blueSlide h2 {
-    transform: rotate(-90deg);
+  right: calc(-85vw + 45px);
+  transition: all 1s ease-in-out; }
+  #MediaBasket .blueSlide .sideways {
+    font-size: 1.5rem;
+    color: rgba(41, 44, 47, 0.7);
+    position: absolute;
+    top: calc(100vh - 220px);
+    left: -140px;
+    transform: rotate(270deg);
     transform-origin: top right 0; }
+  #MediaBasket .blueSlide .sideways:hover {
+    cursor: pointer; }
+
+#MediaBasket .blueSlideOut {
+  right: 0; }
+
+#MediaBasket .clickCatch {
+  height: calc(100vh - 45px);
+  width: 15vw;
+  position: fixed;
+  top: 45px;
+  left: 0; }
+
+#MediaBasket .clickCatch:hover {
+  cursor: pointer; }

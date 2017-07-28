@@ -2,52 +2,40 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import './MediaBasket.css';
+import Media from './../Media/Media';
+import Uploader from './../UploaderTest';
 
-const io = require('socket.io-client');
-const socket = io();
+import './MediaBasket.css';
 
 class MediaBasket extends Component {
   constructor(props) {
     super(props);
     this.state ={
+      basketflag: false,
       inputval: ''
     }
-    socket.on('receive testtext', payload => {
-      this.updateInputFromSockets(payload)
-    })
     this.handleChange = this.handleChange.bind(this);
-    this.updateInputFromSockets = this.updateInputFromSockets.bind(this);
-  }
-  componentDidMount() {
-    console.log(this.props.match.params.dayid);
-    socket.emit('basket', {basket: this.props.match.params.dayid});
-    this.updateInputFromSockets();
-  }
-  componentWillReceiveProps(nextProps) {
-    socket.emit('basket', {day: this.props.match.params.dayid});
-  }
-  componentWillUnmount() {
-    socket.emit('leave basket', {day: this.props.match.params.dayid});
-  }
-  updateInputFromSockets() {
-    socket.on('receive testtext', testtext => {
-      this.setState(Object.assign({}, this.state, {inputval: testtext}))
-    })
+    this.toggleBasket = this.toggleBasket.bind(this);
   }
   handleChange(e) {
     this.setState(Object.assign({}, this.state, {inputval: e.target.value}))
-    socket.emit('upload', {
-      basket: this.props.match.params.dayid,
-      testtext: e.target.value
-    })
+  }
+  toggleBasket() {
+    this.setState(Object.assign({}, this.state, {basketflag: !this.state.basketflag}))
   }
   render(){
     return(
       <div id='MediaBasket'>
-        <div className='blueSlide'>
-          <h2>MediaBasket</h2>
-          <input value={this.state.inputval} onChange={this.handleChange}></input>
+        <Uploader />
+        <div className={`${this.state.basketflag ? 'blueSlideOut' : ''} blueSlide`}>
+            <h1 className='sideways' onClick={this.toggleBasket}>Media Basket</h1>
+          {!this.state.basketflag
+          ?
+          null
+          :
+            <div className='clickCatch' onClick={this.toggleBasket}></div>
+          }
+          <Media />
         </div>
       </div> 
     )

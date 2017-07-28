@@ -34,7 +34,7 @@ class GroupDash extends Component {
             <Route path='/dashboard/:groupid/media' render={() => {
               return <div>
                 <div className='blueBox'><h1>{group[0].name} - Media</h1></div>
-                <Media />
+                <Media userid={this.props.userInfo.id}/>
               </div>
             }}/>
             <Route path='/dashboard/:groupid/pages' render={() => {
@@ -58,6 +58,7 @@ class GroupDash extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
+    userInfo: state.userInfo,
     redirect: state.redirect,
     groups: state.groups,
     sections: state.sections

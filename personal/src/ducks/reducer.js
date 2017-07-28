@@ -14,6 +14,7 @@ const GETMEDIA = 'GETMEDIA';
 const GETPAGES = 'GETPAGES';
 const GETGROUPS = 'GETGROUPS';
 const GETSECTIONS = 'GETSECTIONS';
+const UPDATEMEDIA = 'UPDATEMEDIA';
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -27,6 +28,7 @@ export default function reducer(state = initialState, action) {
         redirect: true
       })
     case GETUSERINFO + '_FULFILLED':
+      console.log('this is the userinfo', action.payload);
       return Object.assign({}, state, {
         userInfo: action.payload
       })
@@ -46,6 +48,10 @@ export default function reducer(state = initialState, action) {
     case GETSECTIONS + '_FULFILLED':
       return Object.assign({}, state, {
         sections: action.payload
+      })
+    case UPDATEMEDIA:
+      return Object.assign({}, state, {
+        media: action.payload
       })
     default:
       return state

@@ -6,6 +6,8 @@ const session = require('express-session');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const socket = require('socket.io');
+const socketWildCard = require('socketio-wildcard')();
+
 
 
 // REQUIRE LOCAL FILES
@@ -78,7 +80,25 @@ app.get('/auth0/logout', function(req, res) {
   res.redirect('http://localhost:3000/welcome');
 })
 
+
+
+
+
 // ENDPOINTS
+//  app.get('/sign_s3', require('react-s3-upload/S3Sign')({
+//     S3_BUCKET:'class-baskets', 
+//     unique: false
+//   }));
+
+// app.use('/s3', require('react-dropzone-s3-uploader/s3router')({
+//   bucket: 'class-basket',                           // required 
+//   region: 'us-east-2',                            // optional 
+//   headers: {'Access-Control-Allow-Origin': '*'},  // optional 
+//   ACL: 'public-read',                                 // this is the default - set to `public-read` to let anyone view uploads 
+// }));
+
+
+
 app.get('/api/checkuser', (req, res) => {
   if (req.user) {
     res.status(200).send(true)
@@ -147,7 +167,7 @@ app.post('/api/addday', (req, res) => {
 
 // LISTEN
 const io = socket(app.listen(config.port, () => console.log(`Server listening on port ${config.port}`)))
-
+io.use(socketWildCard);
 
 // SOCKETS
 
@@ -156,17 +176,52 @@ io.on('connection', socket => {
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
-  socket.on('basket', data => {
-    socket.join(data.basket);
-  });
-  socket.on('upload', data => {
-    console.log('i got an upload', data);
-    // const db = app.get('db');
-    // db.postGroup([data.testtext]).then(
-    // )
-    io.to(data.basket).emit('receive testtext', data.testtext)
+
+  // socket.on('*', () => {
+  //   console.log('catch all was hit');
+  //   socket.emit('please update')
+  // })
+  socket.on('join', data => {
+    console.log('join was hit', data);
+    socket.join(data.userid);
   })
-  socket.on('leave basket', data => {
-    socket.leave(data.basket);
+  socket.on('leave', data => {
+    console.log('leave was hit', data);
+    socket.leave(data.userid)
   })
+  socket.on('update check', data => {
+    console.log('update check was hit', data);
+    const db = app.get('db');
+    db.getUserMedia([data.userid]).then(dbdata => {
+      io.to(data.userid).emit('receive media data', dbdata)
+    })
+  })
+  socket.on('force update check', () => {
+    console.log('force update check was hit');
+    socket.emit('please update');
+  })
+//LOL PUT THE UPDATE EMIT ON THE UPLOAD CATCHERS. ON ALL CREATES AN INFINITE LOOP
+
+
+  // socket.on('group basket', data => {
+  //   socket.join(data.basketid);
+  //   // db.getUserMedia([data.userid]).then(dbdata => {
+  //   //   console.log('db query for media', dbdata);
+  //     // io.to('all').emit('update media', dbdata)
+  //   // })
+  // });
+  // socket.on('basket', data => {
+  //   console.log('I got a basket', data);
+  //   socket.join(data.basket);
+  // });
+  // socket.on('upload', data => {
+  //   console.log('i got an upload', data);
+  //   // const db = app.get('db');
+  //   // db.postGroup([data.testtext]).then(dbdata => {
+  //   // })
+  //     io.to(data.basket).emit('receive testtext', data.testtext)
+  // })
+  // socket.on('leave basket', data => {
+  //   socket.leave(data.basket);
+  // })
 })
