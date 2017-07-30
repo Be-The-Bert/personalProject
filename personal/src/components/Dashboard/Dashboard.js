@@ -39,6 +39,7 @@ class Dashboard extends Component {
     return(
       <div id='Dashboard'>
         <SideNav />
+        <div id='DashboardBox'>
           <Switch>
             <Route path='/dashboard/media' render={() => {
               return <div>
@@ -54,6 +55,7 @@ class Dashboard extends Component {
             }}/>
             <Route component={GroupDash} path='/dashboard/:groupid' />
           </Switch>
+        </div>
       </div>
     )
   }

@@ -8,11 +8,13 @@ $normalWeight: 400;
 
 #Dashboard{
   background-color: $lightGray;
-  display: flex;
-  position: relative;
   font-family: $font;
-  padding-left: calc(15vw + 45px);
   min-height: 100vh;
+  display: flex;
+  #DashboardBox {
+  // padding-left: calc(15vw + 45px);
+    padding-left: 45px;
+  }
   .blueBox {
     height: 100vh;
     width: 45px;

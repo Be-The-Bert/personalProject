@@ -32,9 +32,9 @@ class DayView extends Component {
     .catch(err => console.log(err));
   }
   render(){
-    // if (this.props.redirect) {
-    //   redirect.mainRedirect(this.props.history.push, this.props.user);
-    // }
+    if (this.props.redirect) {
+      redirect.mainRedirect(this.props.history.push, this.props.user);
+    }
     return(
       <div id='DayView'>
         <Nav />

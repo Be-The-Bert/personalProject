@@ -42,7 +42,7 @@ class Media extends Component {
           {this.props.media.map((media, i) => {
             const imagestyle = {backgroundImage: `url(${media.img})`};
             const clsname = `media${i}`
-            if (!this.props.match.params.groupid) {
+            if (!this.props.match.params.groupid && !this.props.match.params.dayid) {
               return (
                 <div key={i} className='mediaBlock' style={imagestyle} onMouseOver={() => this.hoverOn(clsname)} onMouseOut={() => this.hoverOff(clsname)}> 
                   <div className={`${clsname} transparent switch`}></div>
@@ -52,8 +52,20 @@ class Media extends Component {
                   <h3 className={`${clsname} author switch`}>by {media.author}</h3>
                 </div>
               )
-            } else if (!this.props.match.params.sectionid) {
-              if (this.props.match.params.groupid - 2 === media.groupid){
+            } else if (!this.props.match.params.sectionid && !this.props.match.params.dayid) {
+              if (this.props.match.params.groupid == media.groupid){
+                return (
+                  <div key={i} className='mediaBlock' style={imagestyle} onMouseOver={() => this.hoverOn(clsname)} onMouseOut={() => this.hoverOff(clsname)}> 
+                    <div className={`${clsname} transparent switch`}></div>
+                    <h2 className={`${clsname} title switch`}>{media.title}</h2>
+                    <a href={media.source} className={`${clsname} source switch`}>{media.source}</a>
+                    <p className={`${clsname} description switch`}>{media.description}</p>
+                    <h3 className={`${clsname} author switch`}>by {media.author}</h3>
+                  </div>
+                )
+              }
+            } else if (!this.props.match.params.dayid) {
+              if (this.props.match.params.sectionid == media.sectionid){
                 return (
                   <div key={i} className='mediaBlock' style={imagestyle} onMouseOver={() => this.hoverOn(clsname)} onMouseOut={() => this.hoverOff(clsname)}> 
                     <div className={`${clsname} transparent switch`}></div>
@@ -65,7 +77,7 @@ class Media extends Component {
                 )
               }
             } else {
-              if (this.props.match.params.sectionid == media.sectionid){
+              if (this.props.match.params.dayid == media.dayid){
                 return (
                   <div key={i} className='mediaBlock' style={imagestyle} onMouseOver={() => this.hoverOn(clsname)} onMouseOut={() => this.hoverOff(clsname)}> 
                     <div className={`${clsname} transparent switch`}></div>
