@@ -6,11 +6,17 @@ $font: 'Open Sans', sans-serif;
 $lightWeight: 300;
 $normalWeight: 400;
 
-#GroupForm {
-  position: relative;
+#GroupFormParent{
   min-height: 100vh;
+  width: 100vw;
   background-color: $lightGray;
-  padding: 7.5vw 10vw;
+
+}
+#GroupForm {
+  top: 45px;
+  position: relative;
+  // min-height: 100vh;
+  padding: 5vw 10vw;
   font-family: $font;
   h1 {
     font-size: 4rem;

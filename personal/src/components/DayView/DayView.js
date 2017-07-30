@@ -53,10 +53,7 @@ class DayView extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    redirect: state.redirect,
-    groups: state.groups,
-    sections: state.sections,
-    pages: state.pages
+    redirect: state.redirect
   }
 }
 export default connect(mapStateToProps)(DayView);

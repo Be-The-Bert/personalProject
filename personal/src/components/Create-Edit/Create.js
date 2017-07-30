@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import redirect from './../../services/redirect';
 
-import Nav from './../Nav/Nav';
 import GroupForm from './GroupForm';
 
 class Create extends Component {
@@ -34,7 +33,6 @@ class Create extends Component {
     }
     return(
       <div className='CreateEdit'>
-        <Nav />
         <GroupForm title='Create' button='Create' callback={this.createRequests}/> 
       </div>
     )

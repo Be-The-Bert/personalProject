@@ -2,7 +2,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
   height: 45px;
   width: 100%;
   background-color: rgba(41, 44, 47, 0.9);
@@ -10,7 +9,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "Open Sans", sans-serif; }
+  font-family: "Open Sans", sans-serif;
+  margin: 0; }
   #Nav .link {
     text-decoration: none;
     color: #D8D8D8; }

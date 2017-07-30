@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 
+import Nav from './../Nav/Nav';
+
 import './GroupForm.css';
 
 class GroupForm extends Component {
@@ -117,7 +119,9 @@ class GroupForm extends Component {
   render(){
     console.log(this.props);
     return(
-      <div id='GroupForm'>
+      <div id='GroupFormParent'>
+        <Nav />
+        <div id='GroupForm'>
         <h1>{this.props.title} Group</h1>
         <h2>Name:</h2>
         <input value={this.state.name} onChange={(e) => this.handleChange('name', e.target.value)} onFocus={() => this.clear('name', 'Group Name')} onBlur={() => this.unclear('name', 'Group Name')}></input>
@@ -205,6 +209,7 @@ class GroupForm extends Component {
         <button className='createSaveButton' onClick={() => {
           this.props.callback(this.state.name, this.state.members, this.state.sections)
           this.props.history.goBack()}}>{this.props.button}</button>
+      </div>
       </div>
     )
   }

@@ -1,8 +1,12 @@
-#GroupForm {
-  position: relative;
+#GroupFormParent {
   min-height: 100vh;
-  background-color: #D8D8D8;
-  padding: 7.5vw 10vw;
+  width: 100vw;
+  background-color: #D8D8D8; }
+
+#GroupForm {
+  top: 45px;
+  position: relative;
+  padding: 5vw 10vw;
   font-family: "Open Sans", sans-serif; }
   #GroupForm h1 {
     font-size: 4rem; }

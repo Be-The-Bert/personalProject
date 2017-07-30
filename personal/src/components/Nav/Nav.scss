@@ -10,7 +10,7 @@ $normalWeight: 400;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  // z-index: 0;
   height: 45px;
   width: 100%;
   background-color: rgba($darkGray, .9);
@@ -19,6 +19,7 @@ $normalWeight: 400;
   justify-content: space-between;
   align-items: center;
   font-family: $font;
+  margin: 0;
   .link {
     text-decoration: none;
     color: $lightGray;

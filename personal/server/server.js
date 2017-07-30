@@ -92,12 +92,7 @@ app.get('/auth0/logout', function(req, res) {
 
 // ENDPOINTS
 
-app.post('/api/upload', (req, res) => {
-  console.log(req.body.result);
-  cloud.v2.uploader.upload(req.body.result, response => {
-    res.status(200).send(response);
-  })
-});
+
 
 
 
@@ -184,25 +179,17 @@ io.on('connection', socket => {
   //   console.log('catch all was hit');
   //   socket.emit('please update')
   // })
-  socket.on('join', data => {
-    console.log('join was hit', data);
-    socket.join(data.userid);
-  })
-  socket.on('leave', data => {
-    console.log('leave was hit', data);
-    socket.leave(data.userid)
-  })
-  socket.on('update check', data => {
-    console.log('update check was hit', data);
+  socket.on('media upload', data => {
+    const { dayid, userid, source, image, title, description } = data;
     const db = app.get('db');
-    db.getUserMedia([data.userid]).then(dbdata => {
-      io.to(data.userid).emit('receive media data', dbdata)
+    cloud.v2.uploader.upload(image, (error, response) => {
+      console.log(response.secure_url);
+      db.postMedia([dayid, userid, source, response.secure_url, title, description]).then(data => {
+        socket.broadcast.emit('please update');
+      })
     })
   })
-  socket.on('force update check', () => {
-    console.log('force update check was hit');
-    socket.emit('please update');
-  })
+});
 //LOL PUT THE UPDATE EMIT ON THE UPLOAD CATCHERS. ON ALL CREATES AN INFINITE LOOP
 
 
@@ -227,4 +214,3 @@ io.on('connection', socket => {
   // socket.on('leave basket', data => {
   //   socket.leave(data.basket);
   // })
-})

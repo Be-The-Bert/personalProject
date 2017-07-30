@@ -1,0 +1,51 @@
+#Uploader .transparent {
+  z-index: 3;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(41, 44, 47, 0.9); }
+
+#Uploader .transparent:hover {
+  cursor: pointer; }
+
+#Uploader .box {
+  position: fixed;
+  top: 15vh;
+  left: 30vw;
+  z-index: 4;
+  min-height: 70vh;
+  width: 40vw;
+  background-color: #757677;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0; }
+  #Uploader .box .image {
+    height: 200px;
+    width: calc(40vw - 70px);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: dashed 0.5px #292C2F;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  #Uploader .box input {
+    height: 2rem;
+    width: calc(40vw - 70px);
+    font-size: 1.2rem;
+    font-weight: 300; }
+  #Uploader .box input:last-of-type {
+    margin-bottom: 20px; }
+  #Uploader .box textarea {
+    font-family: "Open Sans", sans-serif;
+    width: calc(40vw - 70px);
+    max-width: calc(40vw - 70px);
+    min-height: 100px;
+    max-height: 100px;
+    font-size: 1.2rem; }
+
+#Uploader .box > * {
+  margin: 10px; }
