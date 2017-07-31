@@ -15,9 +15,6 @@ class Media extends Component {
     socket.on('please update', () => {
       this.dispatchUpdateCheck();
     })
-    socket.on('receive media data', payload => {
-      this.dispatchMediaActionCreator(payload)
-    })
     this.dispatchUpdateCheck = this.dispatchUpdateCheck.bind(this);
   }
   dispatchUpdateCheck () {
@@ -49,7 +46,7 @@ class Media extends Component {
                   <h2 className={`${clsname} title switch`}>{media.title}</h2>
                   <a href={media.source} className={`${clsname} source switch`}>{media.source}</a>
                   <p className={`${clsname} description switch`}>{media.description}</p>
-                  <h3 className={`${clsname} author switch`}>by {media.author}</h3>
+                  <h3 className={`${clsname} author switch`}>by {media.authorname}</h3>
                 </div>
               )
             } else if (!this.props.match.params.sectionid && !this.props.match.params.dayid) {
@@ -60,7 +57,7 @@ class Media extends Component {
                     <h2 className={`${clsname} title switch`}>{media.title}</h2>
                     <a href={media.source} className={`${clsname} source switch`}>{media.source}</a>
                     <p className={`${clsname} description switch`}>{media.description}</p>
-                    <h3 className={`${clsname} author switch`}>by {media.author}</h3>
+                    <h3 className={`${clsname} author switch`}>by {media.authorname}</h3>
                   </div>
                 )
               }
@@ -72,7 +69,7 @@ class Media extends Component {
                     <h2 className={`${clsname} title switch`}>{media.title}</h2>
                     <a href={media.source} className={`${clsname} source switch`}>{media.source}</a>
                     <p className={`${clsname} description switch`}>{media.description}</p>
-                    <h3 className={`${clsname} author switch`}>by {media.author}</h3>
+                    <h3 className={`${clsname} author switch`}>by {media.authorname}</h3>
                   </div>
                 )
               }
@@ -84,7 +81,7 @@ class Media extends Component {
                     <h2 className={`${clsname} title switch`}>{media.title}</h2>
                     <a href={media.source} className={`${clsname} source switch`}>{media.source}</a>
                     <p className={`${clsname} description switch`}>{media.description}</p>
-                    <h3 className={`${clsname} author switch`}>by {media.author}</h3>
+                    <h3 className={`${clsname} author switch`}>by {media.authorname}</h3>
                   </div>
                 )
               }

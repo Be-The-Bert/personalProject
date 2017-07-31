@@ -180,11 +180,11 @@ io.on('connection', socket => {
   //   socket.emit('please update')
   // })
   socket.on('media upload', data => {
-    const { dayid, userid, source, image, title, description } = data;
+    const { dayid, userid, username, source, image, title, description } = data;
     const db = app.get('db');
     cloud.v2.uploader.upload(image, (error, response) => {
       console.log(response.secure_url);
-      db.postMedia([dayid, userid, source, response.secure_url, title, description]).then(data => {
+      db.postMedia([dayid, userid, username, source, response.secure_url, title, description]).then(data => {
         socket.broadcast.emit('please update');
       })
     })

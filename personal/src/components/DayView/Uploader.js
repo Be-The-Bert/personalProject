@@ -36,6 +36,7 @@ class Uploader extends Component {
         title: this.state.titleInput,
         description: this.state.descriptionInput,
         userid: this.props.userInfo.id,
+        username: this.props.userInfo.name,
         dayid: this.props.match.params.dayid
     })
       this.props.toggleUpload();
